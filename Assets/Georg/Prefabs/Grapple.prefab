@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2725162817073898119}
   - component: {fileID: 3534420413538354166}
   - component: {fileID: 3177543862930082406}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grapple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,11 +78,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &3177543862930082406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   grapplePoint: {x: 0, y: 0, z: 0}
   playerGrapple: {fileID: 0}
   grappleSpeed: 0
+  stopperPrefab: {fileID: 5863001825025207827, guid: 3f884ccda46f36b49adbfcadaedcf020, type: 3}
 --- !u!1 &8892172960738857728
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,8 +110,7 @@ GameObject:
   - component: {fileID: 4157622584111229701}
   - component: {fileID: 1580789198641230475}
   - component: {fileID: 3920534537574581224}
-  - component: {fileID: 5482838498141801267}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GrappleModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,24 +182,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5482838498141801267
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8892172960738857728}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
