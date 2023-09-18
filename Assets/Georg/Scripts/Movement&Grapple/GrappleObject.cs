@@ -8,6 +8,8 @@ public class GrappleObject : MonoBehaviour
     public PlayerGrapple playerGrapple;
     public float grappleSpeed;
 
+    public Vector3 surfaceNormal;
+
     public string grappleableLayer;
 
     private bool hasConnected = false;
@@ -40,6 +42,8 @@ public class GrappleObject : MonoBehaviour
 
                 GetComponent<Rigidbody>().isKinematic = true;
                 StopCoroutine(grappleCoroutine); //Stop grapple move towards target
+
+                transform.rotation = Quaternion.FromToRotation(Vector3.forward, surfaceNormal);
 
                 grappleCoroutine = StartCoroutine(playerGrapple.PullPlayer()); //Start pulling player
             }

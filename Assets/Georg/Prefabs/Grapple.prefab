@@ -54,7 +54,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.5, z: 0.1}
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3534420413538354166
 Rigidbody:
@@ -98,6 +98,8 @@ MonoBehaviour:
   grapplePoint: {x: 0, y: 0, z: 0}
   playerGrapple: {fileID: 0}
   grappleSpeed: 0
+  surfaceNormal: {x: 0, y: 0, z: 0}
+  grappleableLayer: 
   stopperPrefab: {fileID: 5863001825025207827, guid: 3f884ccda46f36b49adbfcadaedcf020, type: 3}
 --- !u!1 &8892172960738857728
 GameObject:

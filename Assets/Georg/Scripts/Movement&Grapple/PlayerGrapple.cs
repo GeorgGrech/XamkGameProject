@@ -61,19 +61,21 @@ public class PlayerGrapple : MonoBehaviour
             stopperNeeded = true;
         }
 
-        InstantiateGrapple(stopperNeeded);
+        InstantiateGrapple(stopperNeeded,hit.normal);
 
         //lr.enabled = true;
         //lr.SetPosition(1, grapplePoint);
     }
 
-    private void InstantiateGrapple(bool stopperNeeded)
+    private void InstantiateGrapple(bool stopperNeeded, Vector3 surfaceNormal)
     {
         grappleObject = GameObject.Instantiate(grapplePrefab,throwPoint.position,Quaternion.identity).GetComponent<GrappleObject>();
 
         grappleObject.grappleSpeed = grappleSpeed;
         grappleObject.grapplePoint = grapplePoint;
         grappleObject.playerGrapple = this;
+
+        grappleObject.surfaceNormal = surfaceNormal;
         grappleObject.grappleableLayer = grappleableLayerName;
 
         grappleObject.ExecThrowGrapple(stopperNeeded);
