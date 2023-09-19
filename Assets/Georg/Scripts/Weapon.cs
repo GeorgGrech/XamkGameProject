@@ -31,23 +31,16 @@ public class Weapon : MonoBehaviour
     public Transform shootSpot;
 
     [Header("Hitscan shot effect")]
-    public float lineEffectDuration = .1f;
-    public Material lineMaterial;
-    public float lineWidth = .1f;
+    public GameObject lineEffect;
+    public float lineEffectDuration = .05f;
 
     //Private functional vars
     private float fireTimer;
     private float actualROF;
-    private LineRenderer lr;
 
     // Start is called before the first frame update
     void Start()
-    {
-        if(weaponShotType == ShotType.Hitscan)
-        {
-            lr = GetComponent<LineRenderer>();
-        }
-
+    {        
         actualROF = 1f / rateOfFire;
 
         currentAmmo = magSize;
@@ -57,6 +50,9 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         fireTimer += Time.deltaTime;
+
+        if (currentAmmo <= 0) //Reload automatically
+            Reload();
 
         UserInput();
     }
@@ -73,6 +69,9 @@ public class Weapon : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+            Reload();
     }
 
     void HitscanFire()
@@ -82,8 +81,11 @@ public class Weapon : MonoBehaviour
         if (currentAmmo <= 0)
         {
             //DryFire();
+
             return;
         }
+
+        currentAmmo--;
 
         for (int i = 0; i < shotsPerRound; i++)
         {
@@ -96,23 +98,32 @@ public class Weapon : MonoBehaviour
             Ray ray = new Ray(shootSpot.position, direction);
             RaycastHit hit;
 
-            //StartCoroutine(LineEffect(direction));
+            Vector3 effectTarget = shootSpot.forward+direction*range;
 
             if (Physics.Raycast(ray, out hit, range))
             {
                 hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
             }
+            StartCoroutine(LineEffect(effectTarget));
         }
     }
 
     public IEnumerator LineEffect(Vector3 direction)
     {
-        LineRenderer lr = gameObject.AddComponent(typeof(LineRenderer)) as LineRenderer;
-        lr.material = lineMaterial;
-        lr.startWidth=0; lr.endWidth = 0;
+        GameObject lrObject = Instantiate(lineEffect);
+        LineRenderer lr = lrObject.GetComponent<LineRenderer>();
+
         lr.SetPosition(0, shootSpot.position);
         lr.SetPosition(1, direction * range);
+
         yield return new WaitForSeconds(lineEffectDuration);
-        Destroy(lr);
+        Destroy(lrObject);
+    }
+
+    private void Reload() //This method reloads in one go. Perhaps later for weapons like shotguns, they'll reload one by one?
+    {
+        Debug.Log("Reloading...");
+		currentAmmo = magSize;
+        fireTimer = -reloadTime;
     }
 }

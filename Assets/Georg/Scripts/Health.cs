@@ -37,6 +37,7 @@ public class Health : MonoBehaviour
 
     public void Death()
     {
+        dead = true;
         Debug.Log(name + " killed.");
     }
 }

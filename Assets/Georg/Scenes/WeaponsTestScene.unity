@@ -1683,12 +1683,11 @@ MonoBehaviour:
   magSize: 5
   currentAmmo: 0
   rateOfFire: 2
-  reloadTime: 0
+  reloadTime: 3
   accuracy: 30
   shootSpot: {fileID: 1210147773}
+  lineEffect: {fileID: 288801087959572932, guid: ae19d3caa2897e34a990fbd0a5420c38, type: 3}
   lineEffectDuration: 0.1
-  lineMaterial: {fileID: 2100000, guid: 759bbff416d1fd448ab3fd072b9e1c6d, type: 2}
-  lineWidth: 0.1
 --- !u!1 &1210147772
 GameObject:
   m_ObjectHideFlags: 0
