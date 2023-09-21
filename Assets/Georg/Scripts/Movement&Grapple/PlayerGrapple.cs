@@ -84,9 +84,9 @@ public class PlayerGrapple : MonoBehaviour
     public IEnumerator PullPlayer()
     {
         Debug.Log("Pulling player");
-        Vector3 dir = (grapplePoint - transform.position).normalized;
         while (true)
         {
+            Vector3 dir = (grapplePoint - transform.position).normalized;
             rb.AddForce(dir * pullForce); //Keep adding force
             yield return null;
         }
