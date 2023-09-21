@@ -153,5 +153,17 @@ public class Weapon : MonoBehaviour
         Debug.Log("Reloading...");
 		currentAmmo = magSize;
         fireTimer = -reloadTime;
+        Invoke("UpdateUI",reloadTime);
+    }
+
+    //So far I'm just using this to display the debug reload messages, but will be used to update UI later on
+    private void UpdateUI()
+    {
+
+        if (gameObject.activeSelf) //Don't override if weapon switched
+        {
+            //Update UI
+            Debug.Log(name + " reloaded.");
+        }
     }
 }
