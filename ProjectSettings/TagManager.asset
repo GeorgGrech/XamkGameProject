@@ -8,6 +8,7 @@ TagManager:
   - boidarea
   - boidColliderTrigger
   - boid
+  - Enemy
   layers:
   - Default
   - TransparentFX

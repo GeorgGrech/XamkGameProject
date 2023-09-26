@@ -45,10 +45,13 @@ public class GrappleObject : MonoBehaviour
             {
                 Debug.Log("Connected to Grappleable surface");
 
-                transform.parent = collision.gameObject.transform;
+                if (collision.gameObject.CompareTag("Enemy")) // Only set as child if target is moving, (i.e enemy)
+                {
+                    transform.parent = collision.gameObject.transform;
+                }
 
-                Vector3 parentScale = collision.gameObject.transform.localScale;
-                transform.localScale = new Vector3(1 / parentScale.x, 1/ parentScale.y, 1 / parentScale.z);
+                //Vector3 parentScale = collision.gameObject.transform.localScale;
+                //transform.localScale = new Vector3(1 / parentScale.x, 1/ parentScale.y, 1 / parentScale.z);
 
                 hasConnected = true;
 

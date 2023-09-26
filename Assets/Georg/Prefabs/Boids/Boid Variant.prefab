@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3530235589124214244, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4115476135907606149, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
       propertyPath: m_Name
       value: Boid Variant
@@ -15,6 +19,10 @@ PrefabInstance:
     - target: {fileID: 4115476135907606149, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4115476135907606149, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5370185811741407594, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
       propertyPath: m_Layer
@@ -61,7 +69,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6865856283375825968, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865856283375825968, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943215974036780315, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7943215974036780315, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
@@ -93,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e704072ec7c6d1498436628a668dee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  maxHealth: 0
+  health: 0
+  maxHealth: 50
   dead: 0
   grappleAttached: {fileID: 0}
