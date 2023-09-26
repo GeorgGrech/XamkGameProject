@@ -44,11 +44,7 @@ public class GrappleObject : MonoBehaviour
             if(LayerMask.LayerToName(collision.gameObject.layer) == grappleableLayer) //If collision is grappleable environment
             {
                 Debug.Log("Connected to Grappleable surface");
-
-                if (collision.gameObject.CompareTag("Enemy")) // Only set as child if target is moving, (i.e enemy)
-                {
-                    transform.parent = collision.gameObject.transform;
-                }
+                
 
                 //Vector3 parentScale = collision.gameObject.transform.localScale;
                 //transform.localScale = new Vector3(1 / parentScale.x, 1/ parentScale.y, 1 / parentScale.z);
@@ -63,6 +59,7 @@ public class GrappleObject : MonoBehaviour
                 grappleCoroutine = StartCoroutine(playerGrapple.PullPlayer()); //Start pulling player
 
                 collision.gameObject.SendMessageUpwards("GrappleAttached", this, SendMessageOptions.DontRequireReceiver);
+                transform.SetParent(collision.gameObject.transform);
             }
             else //If collision isn't grappleable environment
             {
