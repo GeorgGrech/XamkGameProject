@@ -18,7 +18,7 @@ public class PlayerGrapple : MonoBehaviour
 
     [Header("Instantiated Grapple Properties")]
     [SerializeField] private float grappleSpeed;
-    private Vector3 grapplePoint;
+    public Vector3 grapplePoint;
     public LayerMask grappleableLayer;
     public string grappleableLayerName; //Using LayerMask with the grappleObject coughed up errors. So string it is. Cry about it.
 

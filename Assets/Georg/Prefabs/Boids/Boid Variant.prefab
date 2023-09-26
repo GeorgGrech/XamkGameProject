@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7789100760209560151
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4115476135907606149, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_Name
+      value: Boid Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4115476135907606149, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370185811741407594, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349151928875962174, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349151928875962174, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349151928875962174, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349151928875962174, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349151928875962174, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349151928875962174, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349151928875962174, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349151928875962174, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349151928875962174, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349151928875962174, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865856283375825968, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943215974036780315, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4115476135907606149, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4857034072755329606}
+  m_SourcePrefab: {fileID: 100100000, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+--- !u!1 &6126419840843033810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4115476135907606149, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+  m_PrefabInstance: {fileID: 7789100760209560151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4857034072755329606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126419840843033810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e704072ec7c6d1498436628a668dee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  maxHealth: 0
+  dead: 0
+  grappleAttached: {fileID: 0}

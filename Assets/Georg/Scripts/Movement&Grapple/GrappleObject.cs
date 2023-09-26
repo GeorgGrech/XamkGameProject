@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class GrappleObject : MonoBehaviour
     [SerializeField] private GameObject stopperPrefab;
     private GameObject stopper;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,10 @@ public class GrappleObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(hasConnected)
+        {
+            playerGrapple.grapplePoint = transform.position;
+        }
     }
 
     private void OnCollisionEnter(Collision collision) //Collision with actual surfaces
@@ -38,6 +44,12 @@ public class GrappleObject : MonoBehaviour
             if(LayerMask.LayerToName(collision.gameObject.layer) == grappleableLayer) //If collision is grappleable environment
             {
                 Debug.Log("Connected to Grappleable surface");
+
+                transform.parent = collision.gameObject.transform;
+
+                Vector3 parentScale = collision.gameObject.transform.localScale;
+                transform.localScale = new Vector3(1 / parentScale.x, 1/ parentScale.y, 1 / parentScale.z);
+
                 hasConnected = true;
 
                 GetComponent<Rigidbody>().isKinematic = true;
