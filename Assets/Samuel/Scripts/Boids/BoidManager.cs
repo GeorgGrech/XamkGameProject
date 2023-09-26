@@ -46,14 +46,12 @@ public class BoidManager : MonoBehaviour {
             boidBuffer.GetData (boidData);
 
             for (int i = 0; i < boids.Length; i++) {
-                if (boids[i] != null) 
-                {
-                    boids[i].avgFlockHeading = boidData[i].flockHeading;
-                    boids[i].centreOfFlockmates = boidData[i].flockCentre;
-                    boids[i].avgAvoidanceHeading = boidData[i].avoidanceHeading;
-                    boids[i].numPerceivedFlockmates = boidData[i].numFlockmates;
-                    boids[i].UpdateBoid ();
-                }
+                boids[i].avgFlockHeading = boidData[i].flockHeading;
+                boids[i].centreOfFlockmates = boidData[i].flockCentre;
+                boids[i].avgAvoidanceHeading = boidData[i].avoidanceHeading;
+                boids[i].numPerceivedFlockmates = boidData[i].numFlockmates;
+
+                boids[i].UpdateBoid ();
             }
 
             boidBuffer.Release ();
