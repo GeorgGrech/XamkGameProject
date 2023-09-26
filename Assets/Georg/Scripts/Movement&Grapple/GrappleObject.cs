@@ -46,6 +46,8 @@ public class GrappleObject : MonoBehaviour
                 transform.rotation = Quaternion.FromToRotation(Vector3.forward, surfaceNormal);
 
                 grappleCoroutine = StartCoroutine(playerGrapple.PullPlayer()); //Start pulling player
+
+                collision.gameObject.SendMessageUpwards("GrappleAttached", this, SendMessageOptions.DontRequireReceiver);
             }
             else //If collision isn't grappleable environment
             {
