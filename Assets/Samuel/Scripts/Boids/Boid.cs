@@ -35,7 +35,6 @@ public class Boid : MonoBehaviour {
     void Awake () {
         material = transform.GetComponentInChildren<MeshRenderer> ().material;
         cachedTransform = transform;
-        boidTarget = GameObject.Find("BoidTarget");
         areaTrigger = false;
     }
 
@@ -58,17 +57,17 @@ public class Boid : MonoBehaviour {
 
     public void UpdateBoid () {
         
-        if(areaTrigger == false)
-        {
-            var step =  5 * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, boidTarget.transform.position, step);
+        // if(areaTrigger == false)
+        // {
+        //     var step =  5 * Time.deltaTime;
+        //     transform.position = Vector3.MoveTowards(transform.position, boidTarget.transform.position, step);
 
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, boidTarget.transform.position, step, 0.0f);
+        //     Vector3 newDirection = Vector3.RotateTowards(transform.forward, boidTarget.transform.position, step, 0.0f);
 
-            this.transform.rotation = Quaternion.LookRotation(newDirection);
-        }        
-        else
-        {
+        //     this.transform.rotation = Quaternion.LookRotation(newDirection);
+        // }        
+        // else
+        // {
               Vector3 acceleration = Vector3.zero;
 
                 if (target != null) {
@@ -107,7 +106,7 @@ public class Boid : MonoBehaviour {
                 position = cachedTransform.position;
                 forward = dir;
         
-        }
+        // }
               
 
         

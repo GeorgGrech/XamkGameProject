@@ -8,12 +8,15 @@ public class BoidManager : MonoBehaviour {
 
     public BoidSettings settings;
     public ComputeShader compute;
+
+    public List<GameObject> boidsTargets;
     Boid[] boids;
 
     void Start () {
         boids = FindObjectsOfType<Boid> ();
         foreach (Boid b in boids) {
-            b.Initialize (settings, null);
+            
+            b.Initialize (settings, boidsTargets[Random.Range(0, boidsTargets.Count)].transform);
         }
 
     }
