@@ -9,6 +9,8 @@ public class GrappleObject : MonoBehaviour
     public PlayerGrapple playerGrapple;
     public float grappleSpeed;
 
+    public float maxGrappleDistance;
+
     public Vector3 surfaceNormal;
 
     public string grappleableLayer;
@@ -16,10 +18,6 @@ public class GrappleObject : MonoBehaviour
     private bool hasConnected = false;
 
     public Coroutine grappleCoroutine; //Used for both throwing grapple and pulling player
-
-    [SerializeField] private GameObject stopperPrefab;
-    private GameObject stopper;
-
 
 
     // Start is called before the first frame update
@@ -44,22 +42,17 @@ public class GrappleObject : MonoBehaviour
             if(LayerMask.LayerToName(collision.gameObject.layer) == grappleableLayer) //If collision is grappleable environment
             {
                 Debug.Log("Connected to Grappleable surface");
-                
-
-                //Vector3 parentScale = collision.gameObject.transform.localScale;
-                //transform.localScale = new Vector3(1 / parentScale.x, 1/ parentScale.y, 1 / parentScale.z);
 
                 hasConnected = true;
 
                 GetComponent<Rigidbody>().isKinematic = true;
-                StopCoroutine(grappleCoroutine); //Stop grapple move towards target
+                StopCoroutine(grappleCoroutine); //Stop grapple Lifetime
 
                 transform.rotation = Quaternion.FromToRotation(Vector3.forward, surfaceNormal);
 
                 grappleCoroutine = StartCoroutine(playerGrapple.PullPlayer()); //Start pulling player
 
                 collision.gameObject.SendMessageUpwards("GrappleAttached", this, SendMessageOptions.DontRequireReceiver);
-                transform.SetParent(collision.gameObject.transform);
             }
             else //If collision isn't grappleable environment
             {
@@ -70,31 +63,13 @@ public class GrappleObject : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("GrappleStopper"))
-        {
-            Debug.Log("No surface hit.");
-            CancelGrapple();
-        }
-    }
-
-    public IEnumerator ThrowGrapple()
+    public void ThrowGrapple()
     {
         transform.LookAt(grapplePoint);
+        GetComponent<Rigidbody>().AddForce(transform.forward * grappleSpeed);
 
-        while (true)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, grapplePoint, grappleSpeed * Time.deltaTime);
-            yield return null;
-        }
-    }
 
-    public void ExecThrowGrapple(bool stopperNeeded)
-    {
-        if(stopperNeeded) stopper = Instantiate(stopperPrefab,grapplePoint, Quaternion.identity);
-
-        grappleCoroutine = StartCoroutine(ThrowGrapple());
+        grappleCoroutine = StartCoroutine(Lifetime());
     }
 
     public void CancelGrapple()
@@ -104,12 +79,20 @@ public class GrappleObject : MonoBehaviour
             StopCoroutine(grappleCoroutine);
         }
 
-        if (stopper != null)
-        {
-            Destroy(stopper);
-        }
-
         playerGrapple.grappling = false;
         Destroy(gameObject);
+    }
+
+    private IEnumerator Lifetime()
+    {
+        Vector3 startPos = transform.position;
+
+        while (Vector3.Distance(startPos, transform.position) <= maxGrappleDistance)
+        {
+            yield return null;
+        }
+
+        Debug.Log("Grapple out of range, destroyed");
+        CancelGrapple();
     }
 }
