@@ -44,7 +44,6 @@ public class PlayerGrapple : MonoBehaviour
 
     private void StartGrapple()
     {
-        bool stopperNeeded;
         Debug.Log("StartGrapple");
         grappling = true;
 
@@ -52,22 +51,20 @@ public class PlayerGrapple : MonoBehaviour
         if (Physics.Raycast(playerCam.position, playerCam.forward, out hit, maxGrappleDistance, grappleableLayer))
         {
             grapplePoint = hit.point;
-            stopperNeeded = false;
             
         }
         else
         {
             grapplePoint = playerCam.position + playerCam.forward * maxGrappleDistance;
-            stopperNeeded = true;
         }
 
-        InstantiateGrapple(stopperNeeded,hit.normal);
+        InstantiateGrapple(hit.normal);
 
         //lr.enabled = true;
         //lr.SetPosition(1, grapplePoint);
     }
 
-    private void InstantiateGrapple(bool stopperNeeded, Vector3 surfaceNormal)
+    private void InstantiateGrapple(Vector3 surfaceNormal)
     {
         grappleObject = GameObject.Instantiate(grapplePrefab,throwPoint.position,Quaternion.identity).GetComponent<GrappleObject>();
 
@@ -77,8 +74,9 @@ public class PlayerGrapple : MonoBehaviour
 
         grappleObject.surfaceNormal = surfaceNormal;
         grappleObject.grappleableLayer = grappleableLayerName;
+        grappleObject.maxGrappleDistance= maxGrappleDistance;
 
-        grappleObject.ExecThrowGrapple(stopperNeeded);
+        grappleObject.ThrowGrapple();
     }
 
     public IEnumerator PullPlayer()

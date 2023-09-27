@@ -320,9 +320,10 @@ MonoBehaviour:
   grapplePrefab: {fileID: 236358689989161914, guid: c0e7d76c73960e542a25800732a539ec, type: 3}
   grappling: 0
   throwPoint: {fileID: 8697003495777239950}
-  maxGrappleDistance: 50
-  pullForce: 8
-  grappleSpeed: 150
+  maxGrappleDistance: 75
+  pullForce: 9
+  grappleSpeed: 8000
+  grapplePoint: {x: 0, y: 0, z: 0}
   grappleableLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -613,7 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponShotType: 0
   range: 30
-  damage: 5
+  damage: 10
   shotsPerRound: 6
   magSize: 5
   currentAmmo: 0
