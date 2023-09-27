@@ -21,7 +21,7 @@ public class BoidManager : MonoBehaviour {
 
     }
 
-    void Update () {
+    void FixedUpdate () {
         if (boids != null) {
 
             int numBoids = boids.Length;

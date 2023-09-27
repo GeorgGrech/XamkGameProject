@@ -11,10 +11,10 @@ public class Vehicle : MonoBehaviour
     Vector3[] wheels = new Vector3[4];
     public Vector2 wheelDistance = new Vector2(2,2);
     float[] oldDist = new float[4];
-    float maxSuspensionLength = 3f;
-    float supsensionMultiplier = 120f;
-    float dampSensitivity = 500f;
-    float maxDamp = 40f;
+    public float maxSuspensionLength = 3f;
+    public float supsensionMultiplier = 120f;
+    public float dampSensitivity = 300f;
+    public float maxDamp = 40f;
 
     Rigidbody rb;
 
