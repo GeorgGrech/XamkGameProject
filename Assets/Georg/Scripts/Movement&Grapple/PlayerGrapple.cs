@@ -27,6 +27,18 @@ public class PlayerGrapple : MonoBehaviour
     [Header("Input")]
     public KeyCode grappleKey = KeyCode.Mouse1;
 
+
+    [Header("Automatic cancel settings")]
+
+    [SerializeField]
+    [InspectorName("Cancel Grapple when view obstructed")]
+    private bool cancelWhenObstructed;
+
+    [SerializeField]
+    [InspectorName("Automatically cancel grapple when in proximity")]
+    private bool cancelWhenClose;
+    [SerializeField] private float autoCancelDistance;
+
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -40,6 +52,19 @@ public class PlayerGrapple : MonoBehaviour
         if (Input.GetKeyDown(grappleKey) && !grappling) StartGrapple();
 
         if (Input.GetKeyUp(grappleKey) && grappling) grappleObject.CancelGrapple();
+
+        if (grappling) //Auto cancel options
+        {
+            if ((cancelWhenObstructed
+                && Physics.Linecast(throwPoint.position, grappleObject.transform.position, grappleableLayer)) // Cancel when obstructed
+                    
+                || (cancelWhenClose
+                && Vector3.Distance(grapplePoint,transform.position) <= autoCancelDistance)) //Cancel when in proximity of grapple
+            {
+                grappleObject.CancelGrapple(); //Break grapple
+            }
+
+        }
     }
 
     private void StartGrapple()
