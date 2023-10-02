@@ -329,6 +329,9 @@ MonoBehaviour:
     m_Bits: 64
   grappleableLayerName: Environment
   grappleKey: 324
+  cancelWhenObstructed: 1
+  cancelWhenClose: 1
+  autoCancelDistance: 1.5
 --- !u!1 &4021290671330039627
 GameObject:
   m_ObjectHideFlags: 0
