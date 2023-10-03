@@ -53,6 +53,7 @@ public class GrappleObject : MonoBehaviour
                 grappleCoroutine = StartCoroutine(playerGrapple.PullPlayer()); //Start pulling player
 
                 collision.gameObject.SendMessageUpwards("GrappleAttached", this, SendMessageOptions.DontRequireReceiver);
+                transform.parent = collision.transform;
             }
             else //If collision isn't grappleable environment
             {
