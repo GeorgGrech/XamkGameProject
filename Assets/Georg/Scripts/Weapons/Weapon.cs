@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
@@ -23,6 +24,8 @@ public class Weapon : MonoBehaviour
     public float magSize;
     public float currentAmmo;
 
+    private TextMeshProUGUI ammoUI;
+
     [Header("Time")]
     public float rateOfFire;
     public float reloadTime;
@@ -43,12 +46,25 @@ public class Weapon : MonoBehaviour
     private float fireTimer;
     private float actualROF;
 
+
+    private void Awake()
+    {
+        ammoUI = transform.root.Find("Canvas").Find("AmmoCount").GetComponent<TextMeshProUGUI>();
+    }
+
     // Start is called before the first frame update
     void Start()
-    {        
+    {
         actualROF = 1f / rateOfFire;
 
         currentAmmo = magSize;
+
+        UpdateUI();
+    }
+
+    private void OnEnable()
+    {
+        UpdateUI();
     }
 
     // Update is called once per frame
@@ -96,6 +112,8 @@ public class Weapon : MonoBehaviour
                 HitscanFire();
             }
             else ProjectileFire();
+
+            UpdateUI();
         }
     }
 
@@ -163,6 +181,9 @@ public class Weapon : MonoBehaviour
         if (gameObject.activeSelf) //Don't override if weapon switched
         {
             //Update UI
+
+            ammoUI.SetText(currentAmmo.ToString() + " / " + magSize.ToString());
+
             Debug.Log(name + " reloaded.");
         }
     }
