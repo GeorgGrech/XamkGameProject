@@ -80,6 +80,7 @@ public class GrappleObject : MonoBehaviour
         }
 
         playerGrapple.grappling = false;
+        playerGrapple.EnableGrappleModel(true);
         Destroy(gameObject);
     }
 

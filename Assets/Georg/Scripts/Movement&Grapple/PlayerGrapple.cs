@@ -9,6 +9,7 @@ public class PlayerGrapple : MonoBehaviour
 {
     [SerializeField] private Transform playerCam;
     [SerializeField] private GameObject grapplePrefab;
+    [SerializeField] private GameObject grappleViewModel;
 
     public bool grappling = false;
 
@@ -84,6 +85,7 @@ public class PlayerGrapple : MonoBehaviour
         }
 
         InstantiateGrapple(hit.normal);
+        EnableGrappleModel(false);
 
         //lr.enabled = true;
         //lr.SetPosition(1, grapplePoint);
@@ -102,6 +104,11 @@ public class PlayerGrapple : MonoBehaviour
         grappleObject.maxGrappleDistance= maxGrappleDistance;
 
         grappleObject.ThrowGrapple();
+    }
+
+    public void EnableGrappleModel(bool enable)
+    {
+        grappleViewModel.SetActive(enable);
     }
 
     public IEnumerator PullPlayer()
