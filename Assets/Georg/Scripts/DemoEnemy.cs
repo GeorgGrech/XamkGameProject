@@ -14,6 +14,8 @@ public class DemoEnemy : MonoBehaviour
 
     public GrappleObject grappleAttached; //Grapple that is attached to this enemy
 
+    public WaveManager waveManager;
+
     private void Start()
     {
         health = maxHealth;
@@ -41,6 +43,7 @@ public class DemoEnemy : MonoBehaviour
     {
         dead = true;
         Debug.Log(name + " killed.");
+        waveManager.leftInWave--;
 
         DetachGrapple(); //If player is attached to this enemy, stop grapple function
         Destroy(gameObject);
