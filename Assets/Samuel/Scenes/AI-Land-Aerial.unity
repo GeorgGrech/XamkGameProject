@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 606720280}
   m_Layer: 8
   m_Name: Train
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1924,7 +1924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12e1f398cb57fb4f91e4fbfacf5c748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 71900667}
 --- !u!4 &980864529
 Transform:
   m_ObjectHideFlags: 0

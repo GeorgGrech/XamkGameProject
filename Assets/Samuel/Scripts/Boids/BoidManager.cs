@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BoidManager : MonoBehaviour {
@@ -57,6 +58,12 @@ public class BoidManager : MonoBehaviour {
             boidBuffer.Release ();
         }
     }
+
+    // public void DestroyBoid(GameObject obj)
+    // {
+    //     Destroy(obj);
+    //     boids[2] = null;
+    // }
 
     public struct BoidData {
         public Vector3 position;

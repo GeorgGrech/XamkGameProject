@@ -132,7 +132,25 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, range))
         {
-            hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
+            //Get GameObject hit
+            GameObject gb = hit.collider.gameObject;
+            gb.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
+
+            //Get Rigidbody From gb
+            Rigidbody rb = gb.GetComponent<Rigidbody>();
+            rb.AddForce(transform.up * 1000f);
+            
+            Debug.Log(gb);
+
+            if(gb.tag == "boid")
+            {
+            //    gb.SendMessageUpwards("DisableBoid", gb,SendMessageOptions.DontRequireReceiver);
+               StartCoroutine(DestroyObject(gb));
+            }
+            else
+            {
+                StartCoroutine(DestroyObject(gb));
+            }
         }
         StartCoroutine(LineEffect(effectTarget));
     }
@@ -186,5 +204,15 @@ public class Weapon : MonoBehaviour
 
             Debug.Log(name + " reloaded.");
         }
+        
+    }
+
+    IEnumerator DestroyObject(GameObject enemyobject)
+    {
+        yield return new WaitForSeconds(2);
+       if (enemyobject)
+       {
+        Destroy(enemyobject);
+       }
     }
 }

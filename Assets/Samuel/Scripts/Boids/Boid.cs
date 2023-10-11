@@ -101,10 +101,14 @@ public class Boid : MonoBehaviour {
                 speed = Mathf.Clamp (speed, settings.minSpeed, settings.maxSpeed);
                 velocity = dir * speed;
 
-                cachedTransform.position += velocity * Time.deltaTime;
-                cachedTransform.forward = dir;
-                position = cachedTransform.position;
-                forward = dir;
+                if(cachedTransform != null)
+                {
+                    cachedTransform.position += velocity * Time.deltaTime;
+                    cachedTransform.forward = dir;
+                    position = cachedTransform.position;
+                    forward = dir;
+                }
+                
         
         // }
               
@@ -155,5 +159,13 @@ public class Boid : MonoBehaviour {
         yield return new WaitForSeconds(seconds);
     }
 
+    public void DisableBoid(GameObject obj)
+    {
+        foreach(MeshRenderer mesh in obj.GetComponentsInChildren<MeshRenderer>()){
+        mesh.enabled = false;
+        }
+    }
+
+   
     
 }
