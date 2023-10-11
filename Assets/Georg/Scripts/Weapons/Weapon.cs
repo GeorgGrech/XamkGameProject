@@ -136,21 +136,7 @@ public class Weapon : MonoBehaviour
             GameObject gb = hit.collider.gameObject;
             gb.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
 
-            //Get Rigidbody From gb
-            Rigidbody rb = gb.GetComponent<Rigidbody>();
-            rb.AddForce(transform.up * 1000f);
             
-            Debug.Log(gb);
-
-            if(gb.tag == "boid")
-            {
-            //    gb.SendMessageUpwards("DisableBoid", gb,SendMessageOptions.DontRequireReceiver);
-               StartCoroutine(DestroyObject(gb));
-            }
-            else
-            {
-                StartCoroutine(DestroyObject(gb));
-            }
         }
         StartCoroutine(LineEffect(effectTarget));
     }
@@ -207,12 +193,5 @@ public class Weapon : MonoBehaviour
         
     }
 
-    IEnumerator DestroyObject(GameObject enemyobject)
-    {
-        yield return new WaitForSeconds(2);
-       if (enemyobject)
-       {
-        Destroy(enemyobject);
-       }
-    }
+   
 }

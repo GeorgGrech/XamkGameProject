@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Boid : MonoBehaviour {
@@ -128,11 +129,17 @@ public class Boid : MonoBehaviour {
         Vector3[] rayDirections = BoidHelper.directions;
 
         for (int i = 0; i < rayDirections.Length; i++) {
-            Vector3 dir = cachedTransform.TransformDirection (rayDirections[i]);
-            Ray ray = new Ray (position, dir);
-            if (!Physics.SphereCast (ray, settings.boundsRadius, settings.collisionAvoidDst, settings.obstacleMask)) {
-                return dir;
+            
+            if(cachedTransform != null)
+            {
+                Vector3 dir = cachedTransform.TransformDirection (rayDirections[i]);    
+                Ray ray = new Ray (position, dir);
+                if (!Physics.SphereCast (ray, settings.boundsRadius, settings.collisionAvoidDst, settings.obstacleMask)) 
+                {
+                    return dir;
+                }
             }
+            
         }
 
         return forward;
@@ -159,12 +166,12 @@ public class Boid : MonoBehaviour {
         yield return new WaitForSeconds(seconds);
     }
 
-    public void DisableBoid(GameObject obj)
-    {
-        foreach(MeshRenderer mesh in obj.GetComponentsInChildren<MeshRenderer>()){
-        mesh.enabled = false;
-        }
-    }
+    // public void DisableBoid(GameObject obj)
+    // {
+    //     foreach(MeshRenderer mesh in obj.GetComponentsInChildren<MeshRenderer>()){
+    //     mesh.enabled = false;
+    //     }
+    // }
 
    
     

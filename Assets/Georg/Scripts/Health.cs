@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
             {
                 health = 0;
                 Death();
-            }
+            }   
             Debug.Log(name+" health: "+health);
         }
     }
@@ -39,5 +39,19 @@ public class Health : MonoBehaviour
     {
         dead = true;
         Debug.Log(name + " killed.");
+
+        // Rigidbody rb = this.GetComponent<Rigidbody>();
+        // rb.AddForce(transform.up * 1000f);
+            
+        Destroy(this.gameObject);
+    }
+
+    IEnumerator DestroyObject(GameObject enemyobject)
+    {
+        yield return new WaitForSeconds(2);
+       if (enemyobject)
+       {
+        Destroy(enemyobject);
+       }
     }
 }
