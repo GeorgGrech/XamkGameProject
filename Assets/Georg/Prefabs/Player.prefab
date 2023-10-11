@@ -457,7 +457,8 @@ MonoBehaviour:
   grappling: 0
   throwPoint: {fileID: 8697003495777239950}
   maxGrappleDistance: 75
-  pullForce: 9
+  pullForce: 13
+  maxPullSpeed: 35
   grappleSpeed: 8000
   grapplePoint: {x: 0, y: 0, z: 0}
   grappleableLayer:
