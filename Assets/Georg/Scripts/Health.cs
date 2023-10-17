@@ -43,15 +43,15 @@ public class Health : MonoBehaviour
         // Rigidbody rb = this.GetComponent<Rigidbody>();
         // rb.AddForce(transform.up * 1000f);
             
-        Destroy(this.gameObject);
+        StartCoroutine(DestroyObject(this.gameObject));
     }
 
-    IEnumerator DestroyObject(GameObject enemyobject)
+    IEnumerator DestroyObject(GameObject gameObject)
     {
         yield return new WaitForSeconds(2);
-       if (enemyobject)
+       if (gameObject)
        {
-        Destroy(enemyobject);
+        Destroy(gameObject);
        }
     }
 }
