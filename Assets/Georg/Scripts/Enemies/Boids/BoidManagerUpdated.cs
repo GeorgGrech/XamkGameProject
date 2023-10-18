@@ -10,24 +10,26 @@ public class BoidManagerUpdated : MonoBehaviour {
     public ComputeShader compute;
 
     public List<GameObject> boidsTargets;
-    Boid[] boids;
+    private List<Boid> boids;
+
+    //public WaveManager waveManager;
 
     void Start () {
-        boids = FindObjectsOfType<Boid> ();
+        /*boids = FindObjectsOfType<Boid> ();
         foreach (Boid b in boids) {
             
             b.Initialize (settings, boidsTargets[Random.Range(0, boidsTargets.Count)].transform);
-        }
+        }*/
 
     }
 
     void Update () {
-        if (boids != null) {
+        if (boids != null && boids.Count>0) {
 
-            int numBoids = boids.Length;
+            int numBoids = boids.Count;
             var boidData = new BoidData[numBoids];
 
-            for (int i = 0; i < boids.Length; i++) {
+            for (int i = 0; i < boids.Count; i++) {
                 boidData[i].position = boids[i].position;
                 boidData[i].direction = boids[i].forward;
             }
@@ -36,7 +38,7 @@ public class BoidManagerUpdated : MonoBehaviour {
             boidBuffer.SetData (boidData);
 
             compute.SetBuffer (0, "boids", boidBuffer);
-            compute.SetInt ("numBoids", boids.Length);
+            compute.SetInt ("numBoids", boids.Count);
             compute.SetFloat ("viewRadius", settings.perceptionRadius);
             compute.SetFloat ("avoidRadius", settings.avoidanceRadius);
 
@@ -45,7 +47,7 @@ public class BoidManagerUpdated : MonoBehaviour {
 
             boidBuffer.GetData (boidData);
 
-            for (int i = 0; i < boids.Length; i++)
+            for (int i = 0; i < boids.Count; i++)
             {
                 if (boids[i] != null)
                 {
@@ -75,5 +77,15 @@ public class BoidManagerUpdated : MonoBehaviour {
                 return sizeof (float) * 3 * 5 + sizeof (int);
             }
         }
+    }
+
+    public void InitialiseBoid(Boid b)
+    {
+        b.Initialize(settings, boidsTargets[Random.Range(0, boidsTargets.Count)].transform);
+    }
+
+    public void UpdateBoidList(List<Boid> newBoidsList)
+    {
+        boids = newBoidsList;
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011347521596127182}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: ShootSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 6532880342635965846}
   - component: {fileID: 324063359275739975}
   - component: {fileID: 1675830058123423660}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Revolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +635,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -678,7 +678,7 @@ GameObject:
   - component: {fileID: 7202493571917744250}
   - component: {fileID: 4126687039513910281}
   - component: {fileID: 5869881430369084035}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -768,7 +768,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1235,7 +1235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7980953872953006950}
   - component: {fileID: 6762072255890535096}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1275,6 +1275,7 @@ MonoBehaviour:
   - {fileID: 4289574553038631465}
   - {fileID: 4172150574369922783}
   startingWeaponIndex: 0
+  trailEffects: []
 --- !u!1 &7507624283069803856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4131941016285585919}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: ShootSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

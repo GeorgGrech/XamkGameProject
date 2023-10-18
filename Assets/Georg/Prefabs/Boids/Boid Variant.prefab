@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3530235589124214244, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
       propertyPath: m_Mass
-      value: 10
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: -3530235589124214244, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
       propertyPath: m_CollisionDetection
@@ -88,6 +88,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8022089572216612895, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022089572216612895, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -113,7 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e704072ec7c6d1498436628a668dee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 50
-  dead: 0
   grappleAttached: {fileID: 0}
+  waveManager: {fileID: 0}

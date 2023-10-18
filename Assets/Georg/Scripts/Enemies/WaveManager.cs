@@ -29,7 +29,12 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] private int townTimer;
 
+    private BoidManagerUpdated boidManager;
+
+    [Space(10)]
+
     public int leftInWave; //To be decremented from enemies
+    public List<Boid> boidsInScene;
 
     //private List<GameObject> enemies; //Spawned enemies
 
@@ -41,6 +46,8 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        boidManager = FindObjectOfType<BoidManagerUpdated>();
+        //boidManager.waveManager = this;
         StartCoroutine(WaveCycle());
     }
 
@@ -78,8 +85,14 @@ public class WaveManager : MonoBehaviour
 
                     enemy.GetComponent<DemoEnemy>().waveManager = this; //Make sure enemy can access this script
 
+                    Boid b = enemy.GetComponent<Boid>();
+                    boidManager.InitialiseBoid(b);
+                    boidsInScene.Add(b);
+
                     yield return new WaitForSeconds(spawnDelay);
                 }
+
+                boidManager.UpdateBoidList(boidsInScene);
 
                 Debug.Log("All enemies in wave spawned. Waiting...");
                 while (leftInWave > 0) //While still enemies left in wave, wait
@@ -104,5 +117,11 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(townTimer);
             
         }
+    }
+
+    public void RemoveBoidFromList(Boid b) //Technically, it seems to work without removing dead boids from the boids list, but for safety
+    {
+        boidsInScene.Remove(b);
+        boidManager.UpdateBoidList(boidsInScene);
     }
 }

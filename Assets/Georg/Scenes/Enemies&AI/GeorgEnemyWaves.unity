@@ -564,6 +564,7 @@ MonoBehaviour:
   initialWavesBeforeTown: 3
   townTimer: 20
   leftInWave: 0
+  boidsInScene: []
 --- !u!4 &349494087
 Transform:
   m_ObjectHideFlags: 0
@@ -2048,12 +2049,12 @@ GameObject:
   - component: {fileID: 2001783958}
   - component: {fileID: 2001783959}
   m_Layer: 0
-  m_Name: Boid Manager
+  m_Name: BoidManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2001783958
 Transform:
   m_ObjectHideFlags: 0
@@ -2089,6 +2090,7 @@ MonoBehaviour:
   - {fileID: 765858422}
   - {fileID: 1857854859}
   - {fileID: 628432586}
+  waveManager: {fileID: 0}
 --- !u!850595691 &2130209676
 LightingSettings:
   m_ObjectHideFlags: 0

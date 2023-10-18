@@ -12,12 +12,12 @@ public class Health : MonoBehaviour
     public int maxHealth;
     public bool dead = false;
 
-    BoidManager bm;
+    //BoidManager bm;
 
     private void Start()
     {
         health = maxHealth;
-        bm = GameObject.Find("Boid Manager").GetComponent<BoidManager>();
+        //bm = GameObject.Find("Boid Manager").GetComponent<BoidManager>();
         
     }
 
@@ -43,20 +43,20 @@ public class Health : MonoBehaviour
     {
         dead = true;
         Debug.Log(name + " killed.");
+        
+        gameObject.SendMessageUpwards("OnDeath", SendMessageOptions.DontRequireReceiver);
 
-        if(this.gameObject.tag == "boid")
-        {
-            bm.deadBoids++;
-        }
-        StartCoroutine(DestroyObject(this.gameObject));
+        Destroy(gameObject);
+        //StartCoroutine(DestroyObject(this.gameObject));
     }
 
-    IEnumerator DestroyObject(GameObject gameObject)
+    /*IEnumerator DestroyObject(GameObject gameObject)
     {
+        Debug.Log("DestroyObject");
         yield return new WaitForSeconds(2);
        if (gameObject)
        {
         Destroy(gameObject);
        }
-    }
+    }*/
 }
