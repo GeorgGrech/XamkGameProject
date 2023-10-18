@@ -11,14 +11,19 @@ public class BoidManager : MonoBehaviour {
     public ComputeShader compute;
 
     public List<GameObject> boidsTargets;
-    Boid[] boids;
+    public Boid[] boids;
+    public Spawner spawner;
+
+    public int deadBoids;
 
     void Start () {
         boids = FindObjectsOfType<Boid> ();
-        foreach (Boid b in boids) {
-            
+        foreach (Boid b in boids) 
+        {
             b.Initialize (settings, boidsTargets[Random.Range(0, boidsTargets.Count)].transform);
         }
+
+        deadBoids = 0;
 
     }
 
@@ -57,6 +62,21 @@ public class BoidManager : MonoBehaviour {
 
             boidBuffer.Release ();
         }
+
+        if(deadBoids >= boids.Length)
+        {
+            Debug.Log("All boids are dead");
+            deadBoids = 0;
+            spawner.Respawn();
+            boids = FindObjectsOfType<Boid> ();
+            foreach (Boid b in boids) 
+            {
+                b.Initialize (settings, boidsTargets[Random.Range(0, boidsTargets.Count)].transform);
+            }
+                
+            
+        }
+        
     }
 
     // public void DestroyBoid(GameObject obj)

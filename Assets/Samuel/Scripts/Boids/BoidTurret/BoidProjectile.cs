@@ -11,7 +11,13 @@ public class BoidProjectile : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        if(collider.tag == "Player")
+        {
+            Debug.Log("Player Hit");
+        }
+
         StartLifetime();
+        
     }
 
      private IEnumerator Lifetime()

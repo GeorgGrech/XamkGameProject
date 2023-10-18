@@ -12,9 +12,13 @@ public class Health : MonoBehaviour
     public int maxHealth;
     public bool dead = false;
 
+    BoidManager bm;
+
     private void Start()
     {
         health = maxHealth;
+        bm = GameObject.Find("Boid Manager").GetComponent<BoidManager>();
+        
     }
 
     public void ChangeHealth(int amount) //Used for adding or subtracting health, based on if amount is positive or negative
@@ -40,9 +44,10 @@ public class Health : MonoBehaviour
         dead = true;
         Debug.Log(name + " killed.");
 
-        // Rigidbody rb = this.GetComponent<Rigidbody>();
-        // rb.AddForce(transform.up * 1000f);
-            
+        if(this.gameObject.tag == "boid")
+        {
+            bm.deadBoids++;
+        }
         StartCoroutine(DestroyObject(this.gameObject));
     }
 
