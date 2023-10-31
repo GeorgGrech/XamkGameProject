@@ -16,10 +16,10 @@ MonoBehaviour:
   maxSpeed: 8
   perceptionRadius: 2.5
   avoidanceRadius: 10
-  maxSteerForce: 8
+  maxSteerForce: 5
   alignWeight: 2
   cohesionWeight: 1
-  seperateWeight: 10
+  seperateWeight: 20.34
   targetWeight: 2
   obstacleMask:
     serializedVersion: 2
