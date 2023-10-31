@@ -10,6 +10,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject groundEnemyPrefab;
 
     [SerializeField] private Transform[] flyingSpawnPoints;
+    [SerializeField] private Transform[] groundSpawnPoints;
 
     [SerializeField] private float spawnDelay = 2; //Delay between each enemy in wave
 
@@ -78,12 +79,11 @@ public class WaveManager : MonoBehaviour
                 Debug.Log("groundInWave; "+groundInWave);
                 leftInWave = flyingInWave + groundInWave;
 
+                //This system spawns ALL flying enemies, then ALL ground enemies. Possibly alternate?
                 for (int j = 0; j < flyingInWave; j++)
                 {
-                    int selectedSpawn = Random.Range(0, flyingSpawnPoints.Length); //Select random spawn
-                    GameObject enemy = Instantiate(flyingEnemyPrefab, flyingSpawnPoints[selectedSpawn].position, Quaternion.identity); //Spawn enemy.
+                    GameObject enemy = SpawnEnemyAtPoint(flyingEnemyPrefab, flyingSpawnPoints);
 
-                    enemy.GetComponent<DemoEnemy>().waveManager = this; //Make sure enemy can access this script
 
                     Boid b = enemy.GetComponent<Boid>();
                     boidManager.InitialiseBoid(b);
@@ -91,8 +91,13 @@ public class WaveManager : MonoBehaviour
 
                     yield return new WaitForSeconds(spawnDelay);
                 }
-
                 boidManager.UpdateBoidList(boidsInScene);
+
+                for (int j = 0;j < groundInWave; j++)
+                {
+                    /*GameObject enemy = */SpawnEnemyAtPoint(groundEnemyPrefab, groundSpawnPoints);
+                    yield return new WaitForSeconds(spawnDelay);
+                }
 
                 Debug.Log("All enemies in wave spawned. Waiting...");
                 while (leftInWave > 0) //While still enemies left in wave, wait
@@ -117,6 +122,16 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(townTimer);
             
         }
+    }
+
+    GameObject SpawnEnemyAtPoint(GameObject enemyPrefab, Transform[] spawns)
+    {
+        int selectedSpawn = Random.Range(0, spawns.Length); //Select random spawn
+        GameObject enemy = Instantiate(enemyPrefab, spawns[selectedSpawn].position, Quaternion.identity); //Spawn enemy.
+
+        enemy.GetComponent<DemoEnemy>().waveManager = this; //Make sure enemy can access this script
+
+        return enemy;
     }
 
     public void RemoveBoidFromList(Boid b) //Technically, it seems to work without removing dead boids from the boids list, but for safety
