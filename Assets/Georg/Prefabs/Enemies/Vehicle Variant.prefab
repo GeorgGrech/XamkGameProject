@@ -48,6 +48,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1392694991916950010, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
+      propertyPath: dampSensitivity
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392694991916950010, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
+      propertyPath: supsensionMultiplier
+      value: 18000
+      objectReference: {fileID: 0}
     - target: {fileID: 2138813624238470192, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
       propertyPath: m_Name
       value: Vehicle Variant
@@ -55,6 +63,14 @@ PrefabInstance:
     - target: {fileID: 2138813624238470192, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940535023231643137, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
+      propertyPath: m_Mass
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940535023231643137, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
