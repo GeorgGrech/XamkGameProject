@@ -88,10 +88,10 @@ public class WaveManager : MonoBehaviour
                     Boid b = enemy.GetComponent<Boid>();
                     boidManager.InitialiseBoid(b);
                     boidsInScene.Add(b);
+                    boidManager.UpdateBoidList(boidsInScene);
 
                     yield return new WaitForSeconds(spawnDelay);
                 }
-                boidManager.UpdateBoidList(boidsInScene);
 
                 for (int j = 0;j < groundInWave; j++)
                 {
