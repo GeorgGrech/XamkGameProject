@@ -7,7 +7,7 @@ public class MountPoint : MonoBehaviour
     [Range(0, 360f)]
     public float angleLimit = 90f;
     [Range(0, 360f)]
-    public float aimTolerance = 20f;
+    public float aimTolerance = 1f;
     public float turnSpeed = 90f;
 
     Transform turret;
@@ -51,7 +51,6 @@ public class MountPoint : MonoBehaviour
 
         var targetRotation = Quaternion.LookRotation(losOnPlane, hardpoint.up);
         var aimed = !reachAngleLimit && Quaternion.Angle(turret.rotation, targetRotation) < aimTolerance;
-        Debug.Log("Aimed TEst " +Quaternion.Angle(turret.rotation, targetRotation) + " " + aimTolerance);
         turret.rotation = Quaternion.RotateTowards(turret.rotation, targetRotation, turnSpeed * Time.deltaTime);
 
         return aimed;

@@ -44,24 +44,24 @@ public class DoubleBarreledTurret : MonoBehaviour
     {
         // do nothing when no target
         if (!target) return;
+
         // aim target
-        bool aimed = true;
-
-        //Debug.Log("Aimed Value is :" + aimed);
-
+        var aimed = true;
         foreach (var mountPoint in mountPoints)
         {
             if (!mountPoint.Aim(target.position))
             {
-                //Debug.Log("False");
-                aimed = false;
+                aimed = true;
             }
         }
 
+        // Debug logging
+        Debug.Log("Aimed: " + aimed);
+
         // shoot when aimed
-        if (aimed == true)
+        if (aimed)
         {
-            //Debug.Log("Fire");
+            Debug.Log("Firing!");
             gun.Fire();
         }
     }

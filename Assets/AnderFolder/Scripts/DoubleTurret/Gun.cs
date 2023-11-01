@@ -41,11 +41,7 @@ public class Gun : MonoBehaviour
     void SpawnShot()
     {
         var gunPoint = gunPoints[gunPointIndex++];
-        GameObject shot = Instantiate(shotPrefab, gunPoint.position, gunPoint.rotation);
-        shot.GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity;
-        
-
-        
+        Instantiate(shotPrefab, gunPoint.position, gunPoint.rotation);
         gunPointIndex %= gunPoints.Length;
     }
 

@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class Shot : MonoBehaviour
 {
-    public GameObject hitPrefab;
     public GameObject muzzlePrefab;
     public float speed;
 
-    Rigidbody rb;
-    Vector3 velocity;
+    private Rigidbody rb;
+    private Vector3 velocity;
+
+    // Timer to track the time the Shot has been alive
+    private float timeAlive = 0f;
 
     void Awake()
     {
@@ -25,12 +27,27 @@ public class Shot : MonoBehaviour
     {
         var displacement = velocity * Time.deltaTime;
         rb.MovePosition(rb.position + displacement);
+
+        // Update the time alive
+        timeAlive += Time.deltaTime;
+
+        // Check if the time alive has exceeded 10 seconds, and if so, destroy the Shot GameObject
+        if (timeAlive >= 10f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter(Collision other)
     {
-        var hitEffect = Instantiate(hitPrefab, other.GetContact(0).point, Quaternion.identity);
-        Destroy(hitEffect, 5f);
+        // Check if the collision is with an object tagged as "Player"
+        if (other.gameObject.CompareTag("Player"))
+        {
+            // Destroy the object with the "Player" tag
+            Destroy(other.gameObject);
+        }
+
+        // Always destroy the Shot GameObject on collision
         Destroy(gameObject);
     }
 }
