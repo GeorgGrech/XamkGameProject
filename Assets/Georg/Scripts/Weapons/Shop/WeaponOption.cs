@@ -25,16 +25,32 @@ public class WeaponOption : MonoBehaviour
 
     private void OnMouseOver()
     {
-        Debug.Log("MouseOver");
         if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2))
         {
             Debug.Log("Keypress");
-            Instantiate(weapon,weaponsContainer);
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                if (weaponSwitch.weapons[0])
+                {
+                    Destroy(weaponSwitch.weapons[0]);
+                }
+                weaponSwitch.weapons[0] = Instantiate(weapon, weaponsContainer);
 
+            }
+            else
+            {
+                if (weaponSwitch.weapons[1])
+                {
+                    Destroy(weaponSwitch.weapons[1]);
+                }
+                weaponSwitch.weapons[1] = Instantiate(weapon, weaponsContainer);
+            }
+            /*
             for(int i = 0; i < weaponsContainer.childCount; i++)
             {
                 weaponSwitch.weapons[i] = weaponsContainer.GetChild(i).gameObject;
             }
+            */
         }
     }
 }

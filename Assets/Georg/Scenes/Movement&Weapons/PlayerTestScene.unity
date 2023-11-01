@@ -1442,6 +1442,8 @@ MonoBehaviour:
   weapons:
   - {fileID: 1279579627786301931, guid: b2780844c10deea4baadc823fab915de, type: 3}
   - {fileID: 682879968928284631, guid: 23677120b9be3cc4f9868bd56c3734fd, type: 3}
+  weaponsContainer: {fileID: 0}
+  weaponSwitch: {fileID: 0}
 --- !u!1 &1532712473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,6 +1902,18 @@ PrefabInstance:
     - target: {fileID: 2841307198619252859, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6762072255890535096, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
+      propertyPath: weapons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6762072255890535096, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1279579627786301931, guid: b2780844c10deea4baadc823fab915de, type: 3}
+    - target: {fileID: 6762072255890535096, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

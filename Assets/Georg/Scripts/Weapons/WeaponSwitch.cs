@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponSwitch : MonoBehaviour
 {
 
-    public List<GameObject> weapons;                // The array that holds all the weapons that the player has
+    public GameObject[] weapons;                // The array that holds all the weapons that the player has
     public int startingWeaponIndex = 0;         // The weapon index that the player will start with
     private int weaponIndex;
 
@@ -54,7 +54,7 @@ public class WeaponSwitch : MonoBehaviour
         DestroyTrails();
 
         // Make sure this weapon exists before trying to switch to it
-        if (index >= weapons.Count || index < 0)
+        if (index >= weapons.Length || index < 0)
         {
             Debug.LogWarning("Tried to switch to a weapon that does not exist.  Make sure you have all the correct weapons in your weapons array.");
             return;
@@ -64,19 +64,21 @@ public class WeaponSwitch : MonoBehaviour
         weaponIndex = index;
 
         // Start be deactivating all weapons
-        for (int i = 0; i < weapons.Count; i++)
+        for (int i = 0; i < weapons.Length; i++)
         {
-            weapons[i].SetActive(false);
+            if (weapons[i])
+                weapons[i].SetActive(false);
         }
 
         // Activate the one weapon that we want
-        weapons[index].SetActive(true);
+        if (weapons[index])
+            weapons[index].SetActive(true);
     }
 
     public void NextWeapon()
     {
         weaponIndex++;
-        if (weaponIndex > weapons.Count - 1)
+        if (weaponIndex > weapons.Length - 1)
             weaponIndex = 0;
         SetActiveWeapon(weaponIndex);
     }
@@ -85,7 +87,7 @@ public class WeaponSwitch : MonoBehaviour
     {
         weaponIndex--;
         if (weaponIndex < 0)
-            weaponIndex = weapons.Count - 1;
+            weaponIndex = weapons.Length - 1;
         SetActiveWeapon(weaponIndex);
     }
 
