@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8649812647152324238}
   - component: {fileID: 8286315199343436323}
   - component: {fileID: -2175439598065928892}
+  - component: {fileID: 1480686540068988594}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Floor
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 5, y: 1, z: 5}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,3 +137,16 @@ MonoBehaviour:
   - {fileID: 4178827050724291079, guid: bae02d930cb4022499c77c1f234d7a6b, type: 3}
   numberOfDecorationsToSpawn: 5
   floorDimensions: {x: 0, y: 0}
+--- !u!114 &1480686540068988594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821914340819680090}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0851912edc3838c479deac4876edf274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2

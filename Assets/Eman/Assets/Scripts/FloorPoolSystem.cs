@@ -14,9 +14,12 @@ public class FloorPoolSystem : MonoBehaviour
     public float furthest;
 
     public Queue<GameObject> floorPool = new Queue<GameObject>();
+    public List<GameObject> activeFloors = new List<GameObject>();
 
-    public List<Biome> biomes;
-    public int biomeCount = 0;
+    public float floorSpeed = 5f;
+
+    //public List<Biome> biomes;
+    //public int biomeCount = 0;
 
     // Initialize the object pool
     void Start()
@@ -24,17 +27,28 @@ public class FloorPoolSystem : MonoBehaviour
         scaleX = FloorPrefab.transform.localScale.x;
 
         InitializePool();
-        float xOffset = -poolSize/2; // Initialize xOffset
+        float xOffset = -poolSize / 2; // Initialize xOffset
         for (int i = 0; i < poolSize; i++)
         {
             GameObject newFloor = GetObjectFromPool();
             newFloor.transform.position = new Vector3(Train.transform.position.x + xOffset * scaleX, Train.transform.position.y - 1, Train.transform.position.z);
             xOffset += 1; // Increment xOffset by 1 for the next floor
             furthest = newFloor.transform.position.x;
-        }       
+        }
     }
 
+    void Update()
+    {
+        MoveFloorsBackward();
+    }
 
+    void MoveFloorsBackward()
+    {
+        foreach (GameObject floor in activeFloors)
+        {
+            floor.transform.position -= Vector3.right * floorSpeed * Time.deltaTime;
+        }
+    }
 
     // Create and enqueue objects in the pool
     void InitializePool()
@@ -59,34 +73,40 @@ public class FloorPoolSystem : MonoBehaviour
 
         GameObject obj = floorPool.Dequeue();
         obj.SetActive(true);
+        activeFloors.Add(obj);  // Add the floor to the activeFloors list
         return obj;
     }
 
     // Return an object to the pool
-    // Return an object to the pool
     public void ReturnObjectToPool(GameObject obj)
     {
         obj.SetActive(false);
-        obj.transform.position = new Vector3(furthest+1, transform.position.y, transform.position.z); // Reset the position of the object
+        obj.transform.position = new Vector3(furthest + 1, transform.position.y, transform.position.z);  // Reset the position of the object
         floorPool.Enqueue(obj);
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        activeFloors.Remove(obj);  // Remove the floor from the activeFloors list
     }
 
     public void PutForward(GameObject floor)
     {
         ReturnObjectToPool(floor);
 
-        // Find the furthest floor to determine the placement position
-        float newFloorXPosition = furthest + scaleX;
-        furthest = newFloorXPosition;
+        // You might want to find the position of the furthest active floor rather than relying on a separate 'furthest' variable.
+        float newFloorXPosition = FindFurthestFloorXPosition() + scaleX;
         GameObject newFloor = GetObjectFromPool();
         newFloor.transform.position = new Vector3(newFloorXPosition, Train.transform.position.y - 1, Train.transform.position.z);
+    }
+
+    float FindFurthestFloorXPosition()
+    {
+        float furthestX = float.NegativeInfinity;
+        foreach (GameObject floor in activeFloors)
+        {
+            if (floor.transform.position.x > furthestX)
+            {
+                furthestX = floor.transform.position.x;
+            }
+        }
+        return furthestX;
     }
 
 
@@ -95,7 +115,6 @@ public class FloorPoolSystem : MonoBehaviour
     //{
     //    GameObject furthest = null;
     //    float max = float.MinValue;
-
     //    foreach (GameObject obj in floorList)
     //    {
     //        if (obj.transform.position.x > max)

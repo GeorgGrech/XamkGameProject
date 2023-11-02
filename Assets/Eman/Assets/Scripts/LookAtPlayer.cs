@@ -6,15 +6,13 @@ public class LookAtPlayer : MonoBehaviour
 
     private void Start()
     {
-        // Assuming the player is the main camera in a 2D game
+        // Assuming the player is the main camera in a 3D game
         playerTransform = Camera.main.transform;
     }
 
     void Update()
     {
-        // Make the text look at the player (camera)
-        Vector3 direction = playerTransform.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f; // Subtract 90 degrees to align correctly
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        // Make the game object look at the player (camera)
+        transform.LookAt(playerTransform);
     }
 }
