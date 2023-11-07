@@ -13,7 +13,7 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weaponsContainer = GameObject.Find("WeaponsContainer").transform;
+        weaponsContainer = ShopManager._instance.weaponsContainer;
         weaponSwitch = weaponsContainer.GetComponent<WeaponSwitch>();
         PopulateShop();
     }
@@ -29,11 +29,8 @@ public class Shop : MonoBehaviour
         foreach (GameObject weapon in weapons)
         {
             GameObject weaponOption = Instantiate(optionPrefab,transform);
-            weaponOption.transform.Find("Name").GetComponent<TextMeshProUGUI>().SetText(weapon.name);
             WeaponOption weaponOptionScript = weaponOption.GetComponent<WeaponOption>();
-            weaponOptionScript.weapon = weapon;
-            weaponOptionScript.weaponsContainer = weaponsContainer;
-            weaponOptionScript.weaponSwitch = weaponSwitch;
+            weaponOptionScript.Initialize(weapon, weaponSwitch, weaponsContainer);
         }
     }
 }

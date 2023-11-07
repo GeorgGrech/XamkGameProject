@@ -7,6 +7,8 @@ using UnityEngine.Windows.Speech;
 public class Weapon : MonoBehaviour
 {
     //Public properties
+    public int price; // price for shop
+
     public enum ShotType
     {
         Hitscan,
