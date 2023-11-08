@@ -61,34 +61,35 @@ public class WeaponOption : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    if (weaponSwitch.weapons[0])
+
+                    if (weaponSwitch.weapons[0] && weaponSwitch.weapons[0].name == weapon.name)
                     {
-
-                        if (weaponSwitch.weapons[1] && weaponSwitch.weapons[1].name == weapon.name)
-                        {
-                            Destroy(weaponSwitch.weapons[1]); //Remove duplicate weapon
-                            weaponSwitch.weapons[1] = weaponSwitch.weapons[0]; //Move weapon in selection slot to other slot
-                        }
-
-                        //Destroy(weaponSwitch.weapons[0]);
-
+                        return;
                     }
+
+                    else if (weaponSwitch.weapons[1] && weaponSwitch.weapons[1].name == weapon.name)
+                    {
+                        Destroy(weaponSwitch.weapons[1]); //Remove duplicate weapon
+                        weaponSwitch.weapons[1] = weaponSwitch.weapons[0]; //Move weapon in selection slot to other slot
+                    }
+
                     instantiatedWeapon = weaponSwitch.weapons[0] = Instantiate(weapon, weaponsContainer);
 
                 }
                 else
                 {
-                    if (weaponSwitch.weapons[1])
+                    if (weaponSwitch.weapons[1] && weaponSwitch.weapons[1].name == weapon.name)
                     {
-
-                        if (weaponSwitch.weapons[0] && weaponSwitch.weapons[0].name == weapon.name)
-                        {
-                            Destroy(weaponSwitch.weapons[0]); //Remove duplicate weapon
-                            weaponSwitch.weapons[0] = weaponSwitch.weapons[1]; //Move weapon in selection slot to other slot
-                        }
-
-                        //Destroy(weaponSwitch.weapons[1]);
+                        return;
                     }
+
+
+                    if (weaponSwitch.weapons[0] && weaponSwitch.weapons[0].name == weapon.name)
+                    {
+                        Destroy(weaponSwitch.weapons[0]); //Remove duplicate weapon
+                        weaponSwitch.weapons[0] = weaponSwitch.weapons[1]; //Move weapon in selection slot to other slot
+                    }
+
                     instantiatedWeapon = weaponSwitch.weapons[1] = Instantiate(weapon, weaponsContainer);
                 }
 
