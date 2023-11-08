@@ -56,25 +56,40 @@ public class WeaponOption : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Debug.Log("Keypress");
-            if(ShopManager._instance.money >= price)
+            GameObject instantiatedWeapon;
+            if (ShopManager._instance.money >= price)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     if (weaponSwitch.weapons[0])
                     {
-                        Destroy(weaponSwitch.weapons[0]);
+
+                        if (weaponSwitch.weapons[1] && weaponSwitch.weapons[1].name == weapon.name)
+                        {
+                            Destroy(weaponSwitch.weapons[1]); //Remove duplicate weapon
+                            weaponSwitch.weapons[1] = weaponSwitch.weapons[0]; //Move weapon in selection slot to other slot
+                        }
+
+                        //Destroy(weaponSwitch.weapons[0]);
+
                     }
-                    weaponSwitch.weapons[0] = Instantiate(weapon, weaponsContainer);
+                    instantiatedWeapon = weaponSwitch.weapons[0] = Instantiate(weapon, weaponsContainer);
 
                 }
                 else
                 {
                     if (weaponSwitch.weapons[1])
                     {
-                        Destroy(weaponSwitch.weapons[1]);
+
+                        if (weaponSwitch.weapons[0] && weaponSwitch.weapons[0].name == weapon.name)
+                        {
+                            Destroy(weaponSwitch.weapons[0]); //Remove duplicate weapon
+                            weaponSwitch.weapons[0] = weaponSwitch.weapons[1]; //Move weapon in selection slot to other slot
+                        }
+
+                        //Destroy(weaponSwitch.weapons[1]);
                     }
-                    weaponSwitch.weapons[1] = Instantiate(weapon, weaponsContainer);
+                    instantiatedWeapon = weaponSwitch.weapons[1] = Instantiate(weapon, weaponsContainer);
                 }
 
                 if (!ShopManager._instance.unlockedWeapons.Contains(weapon.name))
@@ -82,6 +97,8 @@ public class WeaponOption : MonoBehaviour
                     ShopManager._instance.unlockedWeapons.Add(weapon.name);
                     transform.Find("Price").GetComponent<TextMeshProUGUI>().SetText("Unlocked");
                 }
+
+                instantiatedWeapon.name = weapon.name; //Rename to remove "(Clone") for easier comparison
             }
 
             /*
