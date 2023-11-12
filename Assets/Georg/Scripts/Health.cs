@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 /// <summary>
 /// Demo class for testing health
@@ -11,6 +13,9 @@ public class Health : MonoBehaviour
     public int health;
     public int maxHealth;
     public bool dead = false;
+
+   
+    public Slider healthSlider;
 
     //BoidManager bm;
 
@@ -23,6 +28,8 @@ public class Health : MonoBehaviour
 
     public void ChangeHealth(int amount) //Used for adding or subtracting health, based on if amount is positive or negative
     {
+       
+
         if (!dead)
         {
             health += amount;
@@ -36,7 +43,16 @@ public class Health : MonoBehaviour
                 Death();
             }   
             Debug.Log(name+" health: "+health);
+        
         }
+
+         if(healthSlider != null)
+        {
+            Debug.Log("Found once");
+            healthSlider.value = health / (float)maxHealth;
+        }
+        
+        
     }
 
     public void Death()
@@ -48,6 +64,11 @@ public class Health : MonoBehaviour
 
         Destroy(gameObject);
         //StartCoroutine(DestroyObject(this.gameObject));
+    }
+
+    public void Update()
+    {
+        
     }
 
     /*IEnumerator DestroyObject(GameObject gameObject)
