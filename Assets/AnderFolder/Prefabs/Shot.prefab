@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4195654612592439951}
   - component: {fileID: 1720140179249092611}
   - component: {fileID: 6900078618585172321}
+  - component: {fileID: -5388157351318373877}
   m_Layer: 0
   m_Name: Shot
   m_TagString: Untagged
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9355aad076c15024ca35e15666c62199, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,7 +102,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -119,9 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5cda03116d3774aaaa1d34719b5ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPrefab: {fileID: 0}
-  muzzlePrefab: {fileID: 1245260218417679224, guid: 1de83a92ba9d8ab40b61ce1fad87b6eb,
-    type: 3}
+  muzzlePrefab: {fileID: 1245260218417679224, guid: 1de83a92ba9d8ab40b61ce1fad87b6eb, type: 3}
   speed: 30
 --- !u!54 &6900078618585172321
 Rigidbody:
@@ -150,3 +149,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5388157351318373877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303045175341562767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b15c02b8d311cd43b2c80b34350f86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 2
+  shotDamage: 3
+  GlobalVolume: {fileID: 0}

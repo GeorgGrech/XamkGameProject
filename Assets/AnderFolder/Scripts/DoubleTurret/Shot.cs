@@ -37,17 +37,4 @@ public class Shot : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void OnCollisionEnter(Collision other)
-    {
-        // Check if the collision is with an object tagged as "Player"
-        if (other.gameObject.CompareTag("Player"))
-        {
-            // Destroy the object with the "Player" tag
-            Destroy(other.gameObject);
-        }
-
-        // Always destroy the Shot GameObject on collision
-        Destroy(gameObject);
-    }
 }
