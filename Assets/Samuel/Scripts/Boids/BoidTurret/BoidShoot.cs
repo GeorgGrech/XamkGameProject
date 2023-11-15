@@ -10,6 +10,8 @@ public class BoidShoot : MonoBehaviour
     public int ammoCount = 20;
     private float lastShot = -10.0f;
 
+    
+
     private Rigidbody rb;
     private Transform playerTransform;
 

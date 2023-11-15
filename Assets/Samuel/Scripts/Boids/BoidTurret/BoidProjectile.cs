@@ -7,13 +7,20 @@ public class BoidProjectile : MonoBehaviour
 {
     [SerializeField] private float lifetime;
 
-    
+    public float shotDamage = 10f;
 
+    public GameObject GlobalVolume;
+    void Start()
+    {
+        GlobalVolume = GameObject.Find("Global Volume");
+    }
+    
     void OnTriggerEnter(Collider collider)
     {
         if(collider.tag == "Player")
         {
-            Debug.Log("Player Hit");
+            collider.SendMessageUpwards("ChangeHealth", -shotDamage, SendMessageOptions.DontRequireReceiver);
+            GlobalVolume.SendMessageUpwards("PlayDamageAnimation", SendMessageOptions.DontRequireReceiver);
         }
 
         StartLifetime();
