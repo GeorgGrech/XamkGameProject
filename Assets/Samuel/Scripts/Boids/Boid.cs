@@ -153,7 +153,6 @@ public class Boid : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter");
         if(other.tag == "boidColliderTrigger")
         {
             StartCoroutine(WaitXAmount(0.5f));

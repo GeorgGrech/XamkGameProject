@@ -189,8 +189,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5705918
+  m_Center: {x: 0, y: 0.05553627, z: -0.02852714}
 --- !u!54 &4646666624313255811
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -231,3 +231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 5
+  shotDamage: 10
+  GlobalVolume: {fileID: 0}
+  explosionVfx: {fileID: 1366778526591135940, guid: 67aeff07d99f559409298245081d4e07, type: 3}
