@@ -24,7 +24,7 @@ public class FloorPoolSystem : MonoBehaviour
     // Initialize the object pool
     void Start()
     {
-        scaleX = FloorPrefab.transform.localScale.x;
+        //scaleX = FloorPrefab.transform.localScale.x;
 
         InitializePool();
         float xOffset = -poolSize / 2; // Initialize xOffset
