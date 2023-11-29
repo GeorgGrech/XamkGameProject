@@ -31,7 +31,7 @@ public class FloorPoolSystem : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             GameObject newFloor = GetObjectFromPool();
-            newFloor.transform.position = new Vector3(Train.transform.position.x + xOffset * scaleX, Train.transform.position.y - 1, Train.transform.position.z);
+            newFloor.transform.position = new Vector3(Train.transform.position.x + xOffset * scaleX, Train.transform.position.y - 2, Train.transform.position.z);
             xOffset += 1; // Increment xOffset by 1 for the next floor
             furthest = newFloor.transform.position.x;
         }
@@ -93,7 +93,7 @@ public class FloorPoolSystem : MonoBehaviour
         // You might want to find the position of the furthest active floor rather than relying on a separate 'furthest' variable.
         float newFloorXPosition = FindFurthestFloorXPosition() + scaleX;
         GameObject newFloor = GetObjectFromPool();
-        newFloor.transform.position = new Vector3(newFloorXPosition, Train.transform.position.y - 1, Train.transform.position.z);
+        newFloor.transform.position = new Vector3(newFloorXPosition, Train.transform.position.y - 2, Train.transform.position.z);
     }
 
     float FindFurthestFloorXPosition()
