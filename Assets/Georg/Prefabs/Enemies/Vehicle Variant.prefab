@@ -103,6 +103,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 50
   dead: 0
+  healthSlider: {fileID: 0}
 --- !u!114 &-8115003403483691682
 MonoBehaviour:
   m_ObjectHideFlags: 0

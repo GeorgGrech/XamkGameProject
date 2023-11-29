@@ -71,7 +71,6 @@ public class PlayerGrapple : MonoBehaviour
 
     private void StartGrapple()
     {
-        Debug.Log("StartGrapple");
         grappling = true;
 
         RaycastHit hit;
@@ -114,7 +113,6 @@ public class PlayerGrapple : MonoBehaviour
 
     public IEnumerator PullPlayer()
     {
-        Debug.Log("Pulling player");
         while (true)
         {
             Vector3 dir = (grapplePoint - transform.position).normalized;

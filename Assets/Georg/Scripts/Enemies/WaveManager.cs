@@ -32,11 +32,14 @@ public class WaveManager : MonoBehaviour
 
     private BoidManagerUpdated boidManager;
 
+    private Transform lastFlyingSpawnPoint;
+    private Transform lastGroundSpawnPoint;
+
     [Space(10)]
 
     public int leftInWave; //To be decremented from enemies
     public List<Boid> boidsInScene;
-
+    
     //private List<GameObject> enemies; //Spawned enemies
 
     private void Awake()
@@ -76,33 +79,37 @@ public class WaveManager : MonoBehaviour
             for (int i = 0; i<wavesBeforeTown; i++)
             {
                 Debug.Log("flyingInWave; "+flyingInWave);
-                Debug.Log("groundInWave; "+groundInWave);
-                leftInWave = flyingInWave + groundInWave;
+                Debug.Log("groundInWave: "+groundInWave);
+                int totalInWave = flyingInWave + groundInWave;
+                leftInWave = totalInWave;
 
+                int flyingLeftToSpawn = flyingInWave;
+                int groundLeftToSpawn = groundInWave;
 
-
-                for (int j = 0; j < leftInWave; j++)
+                for (int j = 0; j < totalInWave; j++)
                 {
                     int selectedToSpawn;
-                    bool spawnFlyingEnemy;
+                    bool isFlyingEnemy;
 
                     do
                     {
-                        Debug.Log("Getting enemy type");
-                        spawnFlyingEnemy = (Random.value < 0.5); //if true, attempt to spawn flying enemy. if false, ground enemy
+                        isFlyingEnemy = (Random.value < 0.5); //if true, attempt to spawn flying enemy. if false, ground enemy
 
-                        if (spawnFlyingEnemy)
-                            selectedToSpawn = flyingInWave;
+                        if (isFlyingEnemy)
+                            selectedToSpawn = flyingLeftToSpawn;
                         else
-                            selectedToSpawn = groundInWave;
+                            selectedToSpawn = groundLeftToSpawn;
 
                     }
                     while (selectedToSpawn == 0);
 
-                    SpawnEnemy(spawnFlyingEnemy);
-                    if (spawnFlyingEnemy)
-                        flyingInWave--;
-                    else groundInWave--;
+
+                    SpawnEnemy(isFlyingEnemy);
+                    if (isFlyingEnemy)
+                        flyingLeftToSpawn--;
+                    else groundLeftToSpawn--;
+                    //Debug.Log("flyingLeftToSpawn: " + flyingLeftToSpawn + " groundLeftToSpawn: " + groundLeftToSpawn);
+
                     yield return new WaitForSeconds(spawnDelay);
                 }
 
@@ -131,12 +138,23 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    GameObject SpawnEnemyAtPoint(GameObject enemyPrefab, Transform[] spawns)
+    GameObject SpawnEnemyAtPoint(GameObject enemyPrefab, Transform[] spawns, Transform excludedSpawn, bool flyingEnemy)
     {
-        int selectedSpawn = Random.Range(0, spawns.Length); //Select random spawn
-        GameObject enemy = Instantiate(enemyPrefab, spawns[selectedSpawn].position, Quaternion.identity); //Spawn enemy.
+        Transform selectedSpawn;
+
+        do
+        {
+            selectedSpawn = spawns[Random.Range(0, spawns.Length)]; //Select random spawn
+
+        } while (selectedSpawn==excludedSpawn);
+        GameObject enemy = Instantiate(enemyPrefab, selectedSpawn.position, Quaternion.identity); //Spawn enemy.
 
         enemy.GetComponent<DemoEnemy>().waveManager = this; //Make sure enemy can access this script
+
+        if (flyingEnemy)
+            lastFlyingSpawnPoint = selectedSpawn;
+        else
+            lastGroundSpawnPoint = selectedSpawn;
 
         return enemy;
     }
@@ -151,7 +169,7 @@ public class WaveManager : MonoBehaviour
     {
         if (flyingEnemy)
         {
-            GameObject enemy = SpawnEnemyAtPoint(flyingEnemyPrefab, flyingSpawnPoints);
+            GameObject enemy = SpawnEnemyAtPoint(flyingEnemyPrefab, flyingSpawnPoints,lastFlyingSpawnPoint,true);
 
 
             Boid b = enemy.GetComponent<Boid>();
@@ -165,7 +183,7 @@ public class WaveManager : MonoBehaviour
         else
         {
             /*GameObject enemy = */
-            SpawnEnemyAtPoint(groundEnemyPrefab, groundSpawnPoints);
+            SpawnEnemyAtPoint(groundEnemyPrefab, groundSpawnPoints, lastGroundSpawnPoint, false);
             Debug.Log("Ground Enemy Spawn");
         }
     }
