@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b11d9a24300de54a952c814de8a51f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  price: 0
   weaponShotType: 0
   range: 30
   damage: 10

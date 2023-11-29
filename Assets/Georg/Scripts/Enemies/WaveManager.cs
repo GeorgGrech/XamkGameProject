@@ -79,23 +79,30 @@ public class WaveManager : MonoBehaviour
                 Debug.Log("groundInWave; "+groundInWave);
                 leftInWave = flyingInWave + groundInWave;
 
-                //This system spawns ALL flying enemies, then ALL ground enemies. Possibly alternate?
-                for (int j = 0; j < flyingInWave; j++)
+
+
+                for (int j = 0; j < leftInWave; j++)
                 {
-                    GameObject enemy = SpawnEnemyAtPoint(flyingEnemyPrefab, flyingSpawnPoints);
+                    int selectedToSpawn;
+                    bool spawnFlyingEnemy;
 
+                    do
+                    {
+                        Debug.Log("Getting enemy type");
+                        spawnFlyingEnemy = (Random.value < 0.5); //if true, attempt to spawn flying enemy. if false, ground enemy
 
-                    Boid b = enemy.GetComponent<Boid>();
-                    boidManager.InitialiseBoid(b);
-                    boidsInScene.Add(b);
-                    boidManager.UpdateBoidList(boidsInScene);
+                        if (spawnFlyingEnemy)
+                            selectedToSpawn = flyingInWave;
+                        else
+                            selectedToSpawn = groundInWave;
 
-                    yield return new WaitForSeconds(spawnDelay);
-                }
+                    }
+                    while (selectedToSpawn == 0);
 
-                for (int j = 0;j < groundInWave; j++)
-                {
-                    /*GameObject enemy = */SpawnEnemyAtPoint(groundEnemyPrefab, groundSpawnPoints);
+                    SpawnEnemy(spawnFlyingEnemy);
+                    if (spawnFlyingEnemy)
+                        flyingInWave--;
+                    else groundInWave--;
                     yield return new WaitForSeconds(spawnDelay);
                 }
 
@@ -138,5 +145,28 @@ public class WaveManager : MonoBehaviour
     {
         boidsInScene.Remove(b);
         boidManager.UpdateBoidList(boidsInScene);
+    }
+
+    private void SpawnEnemy(bool flyingEnemy)
+    {
+        if (flyingEnemy)
+        {
+            GameObject enemy = SpawnEnemyAtPoint(flyingEnemyPrefab, flyingSpawnPoints);
+
+
+            Boid b = enemy.GetComponent<Boid>();
+            boidManager.InitialiseBoid(b);
+            boidsInScene.Add(b);
+            boidManager.UpdateBoidList(boidsInScene);
+
+            Debug.Log("Flying Enemy Spawn");
+            //yield return new WaitForSeconds(spawnDelay);
+        }
+        else
+        {
+            /*GameObject enemy = */
+            SpawnEnemyAtPoint(groundEnemyPrefab, groundSpawnPoints);
+            Debug.Log("Ground Enemy Spawn");
+        }
     }
 }
