@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6780404581431509908}
   - component: {fileID: 5206711449766083447}
+  - component: {fileID: 4335910234784357554}
+  - component: {fileID: -5878019547662495935}
   m_Layer: 0
   m_Name: ComicText
   m_TagString: Untagged
@@ -75,7 +77,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 128fa492fe272ef4c9d6742e7cb87bb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 15, y: 10.71}
@@ -84,3 +86,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4335910234784357554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210925037480921738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: facaf2411a95eb64fbd97982b0130305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
+--- !u!114 &-5878019547662495935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210925037480921738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e043278d3ec36343922ff3e2a391ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 1.5
