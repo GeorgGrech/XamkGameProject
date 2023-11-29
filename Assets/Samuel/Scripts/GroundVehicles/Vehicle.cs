@@ -24,6 +24,7 @@ public class Vehicle : MonoBehaviour
         {
             oldDist[i] = maxSuspensionLength;
             wheelPrefabs[i] = Instantiate(wheelPrefab, wheels[i], Quaternion.identity);
+            wheelPrefabs[i].transform.parent = this.gameObject.transform;
         }
     }
 

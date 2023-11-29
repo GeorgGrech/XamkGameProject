@@ -41,4 +41,16 @@ public class Spawner : MonoBehaviour {
         Gizmos.DrawSphere (transform.position, spawnRadius);
     }
 
+    public void Respawn()
+    {
+        for (int i = 0; i < spawnCount; i++) {
+            Vector3 pos = transform.position + Random.insideUnitSphere * spawnRadius;
+            Boid boid = Instantiate (prefab);
+            boid.transform.position = pos;
+            boid.transform.forward = Random.insideUnitSphere;
+
+            boid.SetColour (colour);
+        }
+    }
+
 }

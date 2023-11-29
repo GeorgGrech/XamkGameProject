@@ -6,8 +6,9 @@ using UnityEngine.Windows.Speech;
 
 public class Weapon : MonoBehaviour
 {
-
     //Public properties
+    public int price; // price for shop
+
     public enum ShotType
     {
         Hitscan,
@@ -46,6 +47,7 @@ public class Weapon : MonoBehaviour
     private float fireTimer;
     private float actualROF;
 
+    WeaponSwitch weaponSwitch;
 
     private void Awake()
     {
@@ -55,6 +57,8 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        weaponSwitch = transform.parent.GetComponent<WeaponSwitch>();
+
         actualROF = 1f / rateOfFire;
 
         currentAmmo = magSize;
@@ -132,7 +136,11 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, range))
         {
-            hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
+            //Get GameObject hit
+            GameObject gb = hit.collider.gameObject;
+            gb.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
+
+            
         }
         StartCoroutine(LineEffect(effectTarget));
     }
@@ -158,6 +166,8 @@ public class Weapon : MonoBehaviour
     {
         GameObject lrObject = Instantiate(lineEffect);
         LineRenderer lr = lrObject.GetComponent<LineRenderer>();
+
+        weaponSwitch.trailEffects.Add(lrObject);
 
         lr.SetPosition(0, shootSpot.position);
         lr.SetPosition(1, direction * range);
@@ -186,5 +196,8 @@ public class Weapon : MonoBehaviour
 
             Debug.Log(name + " reloaded.");
         }
+        
     }
+
+   
 }

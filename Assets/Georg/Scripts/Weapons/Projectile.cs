@@ -9,10 +9,14 @@ public class Projectile : MonoBehaviour
 
     private Vector3 initPos;
 
+    [SerializeField] private GameObject trailPrefab;
+    private GameObject trail;
+
     // Start is called before the first frame update
     void Start()
     {
         initPos = transform.position;
+        trail = Instantiate(trailPrefab,initPos,Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -22,6 +26,10 @@ public class Projectile : MonoBehaviour
         {
             Debug.Log("Out of range. Destroyed.");
             DestroyProjectile();
+        }
+        else
+        {
+            trail.transform.position = transform.position;
         }
     }
 
@@ -33,13 +41,10 @@ public class Projectile : MonoBehaviour
         DestroyProjectile();
     }
 
+    
     private void DestroyProjectile()
     {
-        Transform trailObject = transform.GetChild(0);
-        trailObject.parent = null;
-        trailObject.GetComponent<TrailRenderer>().time /= 2 ; //Quicken fade time
-        trailObject.GetComponent<TrailRenderer>().emitting = false;
-        trailObject.GetComponent<ProjectileTrail>().StartLifetime();
+        trail.GetComponent<ProjectileTrail>().StartLifetime();
         Destroy(gameObject);
     }
 }

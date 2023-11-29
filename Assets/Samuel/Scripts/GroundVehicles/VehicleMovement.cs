@@ -20,16 +20,12 @@ public class VehicleMovement : MonoBehaviour
 {
     if (playerTransform != null)
     {
-        // Get the current position of the car
-        
         Vector3 currentPosition = transform.position;
 
-        // Calculate the target position based on the player's X-position
         Vector3 targetPosition = new Vector3(playerTransform.position.x, transform.position.y, transform.position.z);
 
         if(currentPosition.x != targetPosition.x)
         {
-            // Use Lerp to smoothly move towards the target position
             transform.position = Vector3.Lerp(currentPosition, targetPosition, trackingSpeed * Time.fixedDeltaTime);
         }
 

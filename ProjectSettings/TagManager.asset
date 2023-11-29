@@ -9,6 +9,8 @@ TagManager:
   - boidColliderTrigger
   - boid
   - Enemy
+  - Environment
+  - OutOfBounds
   layers:
   - Default
   - TransparentFX

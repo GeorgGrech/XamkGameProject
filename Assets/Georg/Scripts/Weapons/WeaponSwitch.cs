@@ -8,6 +8,10 @@ public class WeaponSwitch : MonoBehaviour
     public GameObject[] weapons;                // The array that holds all the weapons that the player has
     public int startingWeaponIndex = 0;         // The weapon index that the player will start with
     private int weaponIndex;
+
+
+    public List<GameObject> trailEffects; //Store trail effects to destroy them if necessary
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +51,8 @@ public class WeaponSwitch : MonoBehaviour
 
     public void SetActiveWeapon(int index)
     {
+        DestroyTrails();
+
         // Make sure this weapon exists before trying to switch to it
         if (index >= weapons.Length || index < 0)
         {
@@ -60,11 +66,13 @@ public class WeaponSwitch : MonoBehaviour
         // Start be deactivating all weapons
         for (int i = 0; i < weapons.Length; i++)
         {
-            weapons[i].SetActive(false);
+            if (weapons[i])
+                weapons[i].SetActive(false);
         }
 
         // Activate the one weapon that we want
-        weapons[index].SetActive(true);
+        if (weapons[index])
+            weapons[index].SetActive(true);
     }
 
     public void NextWeapon()
@@ -81,5 +89,16 @@ public class WeaponSwitch : MonoBehaviour
         if (weaponIndex < 0)
             weaponIndex = weapons.Length - 1;
         SetActiveWeapon(weaponIndex);
+    }
+
+    void DestroyTrails() 
+    {
+        foreach (GameObject trail in trailEffects)
+        {
+            if(trail)
+                Destroy(trail);
+        }
+
+        trailEffects.Clear();
     }
 }

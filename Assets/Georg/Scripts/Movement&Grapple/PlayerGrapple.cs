@@ -16,6 +16,7 @@ public class PlayerGrapple : MonoBehaviour
     [SerializeField] private Transform throwPoint;
     [SerializeField] private float maxGrappleDistance;
     [SerializeField] private float pullForce;
+    [SerializeField] private float maxPullSpeed;
 
     [Header("Instantiated Grapple Properties")]
     [SerializeField] private float grappleSpeed;
@@ -118,6 +119,10 @@ public class PlayerGrapple : MonoBehaviour
         {
             Vector3 dir = (grapplePoint - transform.position).normalized;
             rb.AddForce(dir * pullForce); //Keep adding force
+
+            if(rb.velocity.magnitude>maxPullSpeed)
+                rb.velocity = Vector3.ClampMagnitude(rb.velocity,maxPullSpeed);
+
             yield return null;
         }
     }
