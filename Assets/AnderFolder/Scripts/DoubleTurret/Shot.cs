@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Shot : MonoBehaviour
 {
-    public GameObject muzzlePrefab;
+    // public GameObject muzzlePrefab;
     public float speed;
 
     private Rigidbody rb;
@@ -18,8 +18,8 @@ public class Shot : MonoBehaviour
 
     void Start()
     {
-        var muzzleEffect = Instantiate(muzzlePrefab, transform.position, transform.rotation);
-        Destroy(muzzleEffect, 5f);
+        // var muzzleEffect = Instantiate(muzzlePrefab, transform.position, transform.rotation);
+        // Destroy(muzzleEffect, 5f);
         velocity = transform.forward * speed;
     }
 
