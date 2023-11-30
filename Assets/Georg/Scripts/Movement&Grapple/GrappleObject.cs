@@ -80,6 +80,7 @@ public class GrappleObject : MonoBehaviour
             StopCoroutine(grappleCoroutine);
         }
 
+        playerGrapple.lr.enabled = false;
         playerGrapple.grappling = false;
         playerGrapple.EnableGrappleModel(true);
         Destroy(gameObject);

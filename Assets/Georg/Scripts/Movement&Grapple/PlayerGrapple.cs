@@ -42,10 +42,13 @@ public class PlayerGrapple : MonoBehaviour
     [SerializeField] private float autoCancelDistance;
 
     private Rigidbody rb;
+
+    public LineRenderer lr;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        lr = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -57,6 +60,8 @@ public class PlayerGrapple : MonoBehaviour
 
         if (grappling) //Auto cancel options
         {
+            lr.SetPosition(0, throwPoint.position);
+            lr.SetPosition(1, grappleObject.transform.position);
             if ((cancelWhenObstructed
                 && Physics.Linecast(throwPoint.position, grappleObject.transform.position, grappleableLayer)) // Cancel when obstructed
                     
@@ -72,6 +77,7 @@ public class PlayerGrapple : MonoBehaviour
     private void StartGrapple()
     {
         grappling = true;
+        lr.enabled = true;
 
         RaycastHit hit;
         if (Physics.Raycast(playerCam.position, playerCam.forward, out hit, maxGrappleDistance, grappleableLayer))
