@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flyingEnemyPrefab: {fileID: 6126419840843033810, guid: f000d7c821e5bf44dbcb2be3d9b9e2f9, type: 3}
-  groundEnemyPrefab: {fileID: 5617549183016376624, guid: cc9145a8640a9974c9b6f0e3d47a42c9, type: 3}
+  groundEnemyPrefab: {fileID: 6035358396717542060, guid: 5a8de77ae19a03b4591cedb02512839c, type: 3}
   flyingSpawnPoints:
   - {fileID: 1162575394}
   - {fileID: 780842347}
@@ -595,10 +595,10 @@ MonoBehaviour:
   - {fileID: 1297104274}
   - {fileID: 1599464168}
   spawnDelay: 2
-  initialWaitMin: 5
-  initialWaitMax: 10
-  endWaveWaitMin: 5
-  endWaveWaitMax: 10
+  initialWaitMin: 1
+  initialWaitMax: 5
+  endWaveWaitMin: 1
+  endWaveWaitMax: 5
   initialFlyingEnemyAmount: 3
   initialGroundEnemyAmount: 3
   initialWavesBeforeTown: 3

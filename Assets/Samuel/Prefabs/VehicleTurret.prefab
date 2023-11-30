@@ -640,6 +640,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2138813624238470192, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3578839255679066998}
+    - targetCorrespondingSourceObject: {fileID: 2138813624238470192, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7550132313675287487}
   m_SourcePrefab: {fileID: 100100000, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
 --- !u!4 &5367130741543873419 stripped
 Transform:
@@ -667,3 +670,17 @@ MonoBehaviour:
   maxHealth: 160
   dead: 0
   healthSlider: {fileID: 4403231971576366602}
+--- !u!114 &7550132313675287487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035358396717542060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e704072ec7c6d1498436628a668dee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grappleAttached: {fileID: 0}
+  waveManager: {fileID: 0}
