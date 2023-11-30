@@ -623,6 +623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VehicleTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 5940535023231643137, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
+      propertyPath: m_Constraints
+      value: 124
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

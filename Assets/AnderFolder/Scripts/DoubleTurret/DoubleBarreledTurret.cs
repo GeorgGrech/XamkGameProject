@@ -8,6 +8,11 @@ public class DoubleBarreledTurret : MonoBehaviour
     public MountPoint[] mountPoints;
     public Transform target;
 
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
+    }
     void OnDrawGizmos()
     {
         #if UNITY_EDITOR

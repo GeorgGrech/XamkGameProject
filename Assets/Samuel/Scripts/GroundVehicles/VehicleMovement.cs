@@ -14,6 +14,7 @@ public class VehicleMovement : MonoBehaviour
     public void Start()
     {
        trackingSpeed = Random.Range(0.5f,2.0f);
+       playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
   void FixedUpdate()

@@ -11,6 +11,9 @@ TagManager:
   - Enemy
   - Environment
   - OutOfBounds
+  - Floor
+  - Train
+  - Obstacle
   layers:
   - Default
   - TransparentFX

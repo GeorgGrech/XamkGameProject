@@ -17,7 +17,7 @@ public class BoidShoot : MonoBehaviour
 
     private void Start()
     {
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player.transform;
         rb = player.GetComponent<Rigidbody>();
     }
