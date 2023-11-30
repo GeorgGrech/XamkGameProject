@@ -62,6 +62,8 @@ public class PlayerGrapple : MonoBehaviour
         {
             lr.SetPosition(0, throwPoint.position);
             lr.SetPosition(1, grappleObject.transform.position);
+
+            grappleObject.spawnedGrappleModel.transform.position = grappleObject.transform.position; //Ideally this would be done in GrappleObject. Too bad I don't care.
             if ((cancelWhenObstructed
                 && Physics.Linecast(throwPoint.position, grappleObject.transform.position, grappleableLayer)) // Cancel when obstructed
                     

@@ -19,6 +19,8 @@ public class GrappleObject : MonoBehaviour
 
     public Coroutine grappleCoroutine; //Used for both throwing grapple and pulling player
 
+    public GameObject grappleModelPrefab; //Fuck it, we cheat
+    public GameObject spawnedGrappleModel;
 
     // Start is called before the first frame update
     void Start()
@@ -47,8 +49,10 @@ public class GrappleObject : MonoBehaviour
 
                 GetComponent<Rigidbody>().isKinematic = true;
                 StopCoroutine(grappleCoroutine); //Stop grapple Lifetime
-
-                transform.rotation = Quaternion.FromToRotation(Vector3.forward, surfaceNormal);
+                
+                spawnedGrappleModel.transform.rotation = Quaternion.FromToRotation(Vector3.forward, surfaceNormal);
+                spawnedGrappleModel.transform.Rotate(new Vector3(180, 0, 0)); //Flip around
+                //transform.rotation = Quaternion.FromToRotation(Vector3.forward, surfaceNormal);
 
                 grappleCoroutine = StartCoroutine(playerGrapple.PullPlayer()); //Start pulling player
 
@@ -71,6 +75,7 @@ public class GrappleObject : MonoBehaviour
 
 
         grappleCoroutine = StartCoroutine(Lifetime());
+        spawnedGrappleModel = Instantiate(grappleModelPrefab, transform.position, transform.rotation);
     }
 
     public void CancelGrapple()
@@ -83,6 +88,7 @@ public class GrappleObject : MonoBehaviour
         playerGrapple.lr.enabled = false;
         playerGrapple.grappling = false;
         playerGrapple.EnableGrappleModel(true);
+        Destroy(spawnedGrappleModel);
         Destroy(gameObject);
     }
 

@@ -101,6 +101,8 @@ MonoBehaviour:
   maxGrappleDistance: 0
   surfaceNormal: {x: 0, y: 0, z: 0}
   grappleableLayer: 
+  grappleModelPrefab: {fileID: 5601475255793544634, guid: 4fecb8e65ca0eba4fb8a342aef7909c6, type: 3}
+  spawnedGrappleModel: {fileID: 0}
 --- !u!1 &8892172960738857728
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4157622584111229701
 Transform:
   m_ObjectHideFlags: 0
