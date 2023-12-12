@@ -8,6 +8,7 @@ using UnityEngine.Windows.Speech;
 public class Weapon : MonoBehaviour
 {
     private AudioManager audioManager;
+    public ParticleSystem shotGunBlast;
     //Public properties
     public int price; // price for shop
 
@@ -135,6 +136,7 @@ public class Weapon : MonoBehaviour
 
     void HitscanFire()
     {
+        shotGunBlast.Play();
         audioManager.playSound(0);
         Invoke("PlayShellSound", 0.5f);
         
