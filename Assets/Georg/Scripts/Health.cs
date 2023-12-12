@@ -62,7 +62,7 @@ public class Health : MonoBehaviour
         
         gameObject.SendMessageUpwards("OnDeath", SendMessageOptions.DontRequireReceiver);
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
         //StartCoroutine(DestroyObject(this.gameObject));
     }
 
