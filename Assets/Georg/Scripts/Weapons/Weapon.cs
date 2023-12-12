@@ -26,6 +26,7 @@ public class Weapon : MonoBehaviour
     public float currentAmmo;
 
     private TextMeshProUGUI ammoUI;
+    private GameObject reloadText;
 
     [Header("Time")]
     public float rateOfFire;
@@ -52,6 +53,7 @@ public class Weapon : MonoBehaviour
     private void Awake()
     {
         ammoUI = transform.root.Find("Canvas").Find("AmmoCount").GetComponent<TextMeshProUGUI>();
+        reloadText = transform.root.Find("Canvas").Find("ReloadText").gameObject;
     }
 
     // Start is called before the first frame update
@@ -179,9 +181,11 @@ public class Weapon : MonoBehaviour
     private void Reload() //This method reloads in one go. Perhaps later for weapons like shotguns, they'll reload one by one?
     {
         Debug.Log("Reloading...");
-		currentAmmo = magSize;
+        ShowReloadMessage();
+        currentAmmo = magSize;
         fireTimer = -reloadTime;
         Invoke("UpdateUI",reloadTime);
+        Invoke("HideReloadMessage",reloadTime);
     }
 
     //So far I'm just using this to display the debug reload messages, but will be used to update UI later on
@@ -199,5 +203,13 @@ public class Weapon : MonoBehaviour
         
     }
 
-   
+    private void ShowReloadMessage()
+    {
+        reloadText.SetActive(true);
+    }
+
+    private void HideReloadMessage()
+    {
+        reloadText.SetActive(false);
+    }
 }
