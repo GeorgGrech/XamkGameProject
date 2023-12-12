@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            clickSound.Play();
+            //clickSound.Play();
 
         }
     }
