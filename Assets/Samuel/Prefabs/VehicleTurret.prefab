@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8519992881963066669}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 3729451230498655468}
   - component: {fileID: 1623075928740607182}
   - component: {fileID: 1048263744464232451}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 8707731871886007943}
   - component: {fileID: 1159886660317398229}
   - component: {fileID: 1706509374465221032}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4486609093144596518}
   - component: {fileID: 4403231971576366602}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 3575220039701908028}
   - component: {fileID: 8852171376172204302}
   - component: {fileID: 7186765985707800695}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6976214200535302793}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 2600739098338215279}
   - component: {fileID: 1877251762008524044}
   - component: {fileID: 1550151089572336081}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,13 +497,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5367130741543873419}
     m_Modifications:
+    - target: {fileID: 341483689832172749, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1381975655430496016, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
       propertyPath: fireRate
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1687706243128873051, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307312450148015510, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3391065051818141263, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
       propertyPath: m_Name
       value: DoubleBarreledTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 3391065051818141263, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541678297887722600, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535435169722812676, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750211437708259075, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153274599945771563, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331162000588257077, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6199548312968491774, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
       propertyPath: m_LocalScale.x
@@ -556,6 +592,14 @@ PrefabInstance:
     - target: {fileID: 6199548312968491774, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509181579873027253, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9145778178797312209, guid: 5c24f7e66b5fd3d4db6941a2bdf17419, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -622,6 +666,10 @@ PrefabInstance:
     - target: {fileID: 2138813624238470192, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
       propertyPath: m_Name
       value: VehicleTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138813624238470192, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5940535023231643137, guid: 7c846f8f38f45434d8d843ccd0b18e83, type: 3}
       propertyPath: m_Constraints

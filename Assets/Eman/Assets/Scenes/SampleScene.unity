@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.7260883, g: 0.8406132, b: 0.8229553, a: 1}
+  m_IndirectSpecularColor: {r: 0.7263551, g: 0.8407154, b: 0.8229435, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2867,7 +2867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6810490093065023127, guid: e939a15f48660d7429dd798b3e33ea72, type: 3}
       propertyPath: pullForce
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6810490093065023127, guid: e939a15f48660d7429dd798b3e33ea72, type: 3}
       propertyPath: maxPullSpeed
