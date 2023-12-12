@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 1022973223524833848}
   m_Layer: 0
   m_Name: Motorbike1 1
-  m_TagString: Untagged
+  m_TagString: motorbike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -787,6 +787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grappleAttached: {fileID: 0}
   waveManager: {fileID: 0}
+  explosionVfx: {fileID: 1366778526591135940, guid: 67aeff07d99f559409298245081d4e07, type: 3}
 --- !u!1 &6917392249224361414
 GameObject:
   m_ObjectHideFlags: 0
