@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    private AudioManager audioManager;
+
     public static WaveManager _instance;
 
     [SerializeField] private GameObject flyingEnemyPrefab;
@@ -50,6 +52,7 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         boidManager = FindObjectOfType<BoidManagerUpdated>();
         //boidManager.waveManager = this;
         StartCoroutine(WaveCycle());
@@ -85,7 +88,7 @@ public class WaveManager : MonoBehaviour
 
                 int flyingLeftToSpawn = flyingInWave;
                 int groundLeftToSpawn = groundInWave;
-
+                audioManager.playSound(3);
                 for (int j = 0; j < totalInWave; j++)
                 {
                     int selectedToSpawn;
