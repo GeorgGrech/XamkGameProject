@@ -5966,6 +5966,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2645784883103677864, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
+      propertyPath: cancelWhenClose
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645784883103677864, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
+      propertyPath: cancelWhenObstructed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2841307198619252859, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
       propertyPath: m_Name
       value: Player Variant
@@ -5991,6 +5999,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5869881430369084035, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
+      propertyPath: accuracy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5869881430369084035, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
       propertyPath: rateOfFire
       value: 1.5
       objectReference: {fileID: 0}
@@ -5998,6 +6010,10 @@ PrefabInstance:
       propertyPath: shotGunBlast
       value: 
       objectReference: {fileID: 941969077108490360}
+    - target: {fileID: 5869881430369084035, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
+      propertyPath: shotsPerRound
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6762072255890535096, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
       propertyPath: weapons.Array.size
       value: 1
