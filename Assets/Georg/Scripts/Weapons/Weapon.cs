@@ -136,6 +136,8 @@ public class Weapon : MonoBehaviour
     void HitscanFire()
     {
         audioManager.playSound(0);
+        Invoke("PlayShellSound", 0.5f);
+        
         float accuracyVary = (100 - accuracy) / 1000;
         Vector3 direction = shootSpot.forward;
         direction.x += Random.Range(-accuracyVary, accuracyVary);
@@ -156,6 +158,11 @@ public class Weapon : MonoBehaviour
             
         }
         StartCoroutine(LineEffect(effectTarget));
+    }
+
+    private void PlayShellSound()
+    {
+        audioManager.playSound(2);
     }
 
     void ProjectileFire()
@@ -198,6 +205,7 @@ public class Weapon : MonoBehaviour
         Invoke("UpdateUI",reloadTime);
         Invoke("HideReloadMessage",reloadTime);
         audioManager.playSound(1);
+
     }
 
     //So far I'm just using this to display the debug reload messages, but will be used to update UI later on
