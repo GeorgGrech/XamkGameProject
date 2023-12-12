@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 
 public class Weapon : MonoBehaviour
@@ -25,8 +26,12 @@ public class Weapon : MonoBehaviour
     public float magSize;
     public float currentAmmo;
 
-    private TextMeshProUGUI ammoUI;
+    //private TextMeshProUGUI ammoUI;
     private GameObject reloadText;
+
+    private Image[] ammoDisplay;
+    public Sprite fullRound;
+    public Sprite emptyRound;
 
     [Header("Time")]
     public float rateOfFire;
@@ -52,7 +57,9 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        ammoUI = transform.root.Find("Canvas").Find("AmmoCount").GetComponent<TextMeshProUGUI>();
+        ammoDisplay = transform.root.Find("Canvas").Find("Ammo").GetComponentsInChildren<Image>();
+
+        //ammoUI = transform.root.Find("Canvas").Find("AmmoCount").GetComponent<TextMeshProUGUI>();
         reloadText = transform.root.Find("Canvas").Find("ReloadText").gameObject;
     }
 
@@ -196,7 +203,17 @@ public class Weapon : MonoBehaviour
         {
             //Update UI
 
-            ammoUI.SetText(currentAmmo.ToString() + " / " + magSize.ToString());
+            //ammoUI.SetText(currentAmmo.ToString() + " / " + magSize.ToString());
+
+            foreach(Image image in ammoDisplay)
+            {
+                image.sprite = emptyRound;
+            }
+
+            for (int i = 0; i < currentAmmo; i++)
+            {
+                ammoDisplay[i].sprite = fullRound;
+            }
 
             Debug.Log(name + " reloaded.");
         }
