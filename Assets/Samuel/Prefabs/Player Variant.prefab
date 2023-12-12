@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 20000
   dead: 0
   healthSlider: {fileID: 6092344727391295971}
 --- !u!1 &7311011557625923029 stripped

@@ -1970,7 +1970,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 41fdbb8ef1c969148b965afbd15a7b71, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2506,7 +2506,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Train: {fileID: 523473904}
-  FloorPrefab: {fileID: 7902400639844899371, guid: d0da847d9e3e6e743ae7637aaae45d1b, type: 3}
+  FloorPrefabs:
+  - {fileID: 7902400639844899371, guid: d0da847d9e3e6e743ae7637aaae45d1b, type: 3}
+  - {fileID: 7902400639844899371, guid: 2cc950308a9ea274da26feb1466b3a78, type: 3}
+  - {fileID: 7902400639844899371, guid: af386bae9e018a04592a309461e7d0f3, type: 3}
+  - {fileID: 7902400639844899371, guid: 534c0aac31d015d43b5bb778a42433c6, type: 3}
+  - {fileID: 7902400639844899371, guid: e12289929292fde4cafc4f71b74a9072, type: 3}
+  - {fileID: 7902400639844899371, guid: 6666915cb2e2be949a434b7ff28aed4e, type: 3}
+  - {fileID: 7902400639844899371, guid: ed04ed34ecfe76a4481eef25ff5aa3b4, type: 3}
+  - {fileID: 7902400639844899371, guid: 69666030c01f2174db709432eb737b5b, type: 3}
+  - {fileID: 7902400639844899371, guid: 3a1e4e14476d78946a20100c56ed8f35, type: 3}
+  - {fileID: 7902400639844899371, guid: 5de210b6f30277c4da0f81e1b61f4e7d, type: 3}
   poolSize: 11
   scaleX: 37
   furthest: 0
