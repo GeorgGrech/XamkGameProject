@@ -842,7 +842,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.703185, y: 5.8697896, z: 70.91471}
+  m_Size: {x: 4, y: 5.8697896, z: 70.91471}
   m_Center: {x: 7.204602e-14, y: 2.4348958, z: -34.957516}
 --- !u!1 &599126041 stripped
 GameObject:
@@ -2809,6 +2809,10 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2874346671027396999, guid: e939a15f48660d7429dd798b3e33ea72, type: 3}
+      propertyPath: weapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4739340823653859995, guid: e939a15f48660d7429dd798b3e33ea72, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2894,7 +2898,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4887103944977403360, guid: e939a15f48660d7429dd798b3e33ea72, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6562635708833717556, guid: e939a15f48660d7429dd798b3e33ea72, type: 3}
       insertIndex: 0
