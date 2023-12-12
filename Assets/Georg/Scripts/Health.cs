@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 /// <summary>
@@ -62,6 +63,11 @@ public class Health : MonoBehaviour
         
         gameObject.SendMessageUpwards("OnDeath", SendMessageOptions.DontRequireReceiver);
 
+        if(CompareTag("Player"))
+        {
+            SceneManager.LoadScene(2);
+
+        }
         //Destroy(gameObject);
         //StartCoroutine(DestroyObject(this.gameObject));
     }
