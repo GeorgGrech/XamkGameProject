@@ -37,6 +37,8 @@ public class WaveManager : MonoBehaviour
     private Transform lastFlyingSpawnPoint;
     private Transform lastGroundSpawnPoint;
 
+    
+
     [Space(10)]
 
     public int leftInWave; //To be decremented from enemies

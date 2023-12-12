@@ -8457,6 +8457,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 941969077108490360, guid: e939a15f48660d7429dd798b3e33ea72, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1147716427424757611, guid: e939a15f48660d7429dd798b3e33ea72, type: 3}
       propertyPath: maxHealth
       value: 20000
