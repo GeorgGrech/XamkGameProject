@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.7261321, g: 0.84064627, b: 0.8229527, a: 1}
+  m_IndirectSpecularColor: {r: 0.726291, g: 0.8407145, b: 0.82294565, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -276,7 +276,7 @@ Transform:
   m_GameObject: {fileID: 19125284}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 1, z: -22}
+  m_LocalPosition: {x: -12, y: -0.7, z: -22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -586,7 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flyingEnemyPrefab: {fileID: 6126419840843033810, guid: f000d7c821e5bf44dbcb2be3d9b9e2f9, type: 3}
-  groundEnemyPrefab: {fileID: 6035358396717542060, guid: 5a8de77ae19a03b4591cedb02512839c, type: 3}
+  groundEnemyPrefab: {fileID: 6774096167960519412, guid: 068b9cbcf1a4d09489a46b914835d3cc, type: 3}
   flyingSpawnPoints:
   - {fileID: 1313806377}
   - {fileID: 442633085}
@@ -6930,7 +6930,7 @@ Transform:
   m_GameObject: {fileID: 1034469781}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 1, z: 9.4}
+  m_LocalPosition: {x: -12, y: -0.7, z: 9.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8819,6 +8819,6 @@ SceneRoots:
   - {fileID: 1207071074}
   - {fileID: 831007879}
   - {fileID: 4383940534383598502}
+  - {fileID: 305334839}
   - {fileID: 1861569570}
   - {fileID: 969870110}
-  - {fileID: 305334839}
