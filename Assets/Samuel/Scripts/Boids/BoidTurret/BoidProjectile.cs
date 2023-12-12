@@ -15,7 +15,7 @@ public class BoidProjectile : MonoBehaviour
     void Start()
     {
         GlobalVolume = GameObject.Find("Global Volume");
-        LayerObstacle = LayerMask.NameToLayer("Obstacle");
+        LayerObstacle = LayerMask.NameToLayer("Environment");
     }
     
     void OnTriggerEnter(Collider collider)
