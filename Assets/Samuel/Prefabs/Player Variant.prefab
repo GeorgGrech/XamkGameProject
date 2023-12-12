@@ -1083,10 +1083,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5869881430369084035, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
+<<<<<<< Updated upstream
       propertyPath: damage
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5869881430369084035, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
+=======
+>>>>>>> Stashed changes
       propertyPath: rateOfFire
       value: 1.5
       objectReference: {fileID: 0}

@@ -7,6 +7,7 @@ using UnityEngine.Windows.Speech;
 
 public class Weapon : MonoBehaviour
 {
+    private AudioManager audioManager;
     //Public properties
     public int price; // price for shop
 
@@ -66,6 +67,7 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         weaponSwitch = transform.parent.GetComponent<WeaponSwitch>();
 
         actualROF = 1f / rateOfFire;
@@ -86,6 +88,7 @@ public class Weapon : MonoBehaviour
         fireTimer += Time.deltaTime;
 
         if (currentAmmo <= 0) //Reload automatically
+
             Reload();
 
         UserInput();
@@ -132,6 +135,7 @@ public class Weapon : MonoBehaviour
 
     void HitscanFire()
     {
+        audioManager.playSound(0);
         float accuracyVary = (100 - accuracy) / 1000;
         Vector3 direction = shootSpot.forward;
         direction.x += Random.Range(-accuracyVary, accuracyVary);
@@ -193,6 +197,7 @@ public class Weapon : MonoBehaviour
         fireTimer = -reloadTime;
         Invoke("UpdateUI",reloadTime);
         Invoke("HideReloadMessage",reloadTime);
+        audioManager.playSound(1);
     }
 
     //So far I'm just using this to display the debug reload messages, but will be used to update UI later on
