@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     bool readyToJump;
 
+    public Vector3 playerStartPos;
+
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
 
@@ -47,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
+        GetPlayerStartPosition();
         readyToJump = true;
 
         //originalCamHeight = playerCam.position.y;
@@ -134,4 +136,14 @@ public class PlayerMovement : MonoBehaviour
 
     }
     */
+
+    public void GetPlayerStartPosition() //Player's Start Position is Saved
+    {
+       playerStartPos = this.gameObject.transform.position;
+    }
+
+    public void RespawnPlayer()
+    {
+        this.gameObject.transform.position = playerStartPos;
+    }
 }
