@@ -15,6 +15,7 @@ TagManager:
   - Train
   - Obstacle
   - end
+  - motorbike
   layers:
   - Default
   - TransparentFX

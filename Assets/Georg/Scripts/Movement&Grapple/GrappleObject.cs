@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GrappleObject : MonoBehaviour
 {
+    private AudioManager audioManager;
     public Vector3 grapplePoint;
     public PlayerGrapple playerGrapple;
     public float grappleSpeed;
@@ -25,7 +26,7 @@ public class GrappleObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -43,6 +44,7 @@ public class GrappleObject : MonoBehaviour
         {
             if(LayerMask.LayerToName(collision.gameObject.layer) == grappleableLayer) //If collision is grappleable environment
             {
+                audioManager.playSound(5);
                 Debug.Log("Connected to Grappleable surface");
 
                 hasConnected = true;
@@ -80,7 +82,7 @@ public class GrappleObject : MonoBehaviour
 
     public void CancelGrapple()
     {
-
+        
         if (grappleCoroutine != null)
         {
             StopCoroutine(grappleCoroutine);
@@ -89,6 +91,7 @@ public class GrappleObject : MonoBehaviour
         playerGrapple.lr.enabled = false;
         playerGrapple.grappling = false;
         playerGrapple.EnableGrappleModel(true);
+        audioManager.playSound(6);
         Destroy(spawnedGrappleModel);
         Destroy(gameObject);
     }

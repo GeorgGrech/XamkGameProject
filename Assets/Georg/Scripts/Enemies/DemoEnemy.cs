@@ -12,6 +12,16 @@ public class DemoEnemy : MonoBehaviour
 
     public WaveManager waveManager;
 
+    private Rigidbody rb;
+    public GameObject explosionVfx;
+
+    private bool isDead = false;
+
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     public void OnDeath()
     {
         waveManager.leftInWave--;
@@ -20,7 +30,14 @@ public class DemoEnemy : MonoBehaviour
             waveManager.RemoveBoidFromList(GetComponent<Boid>());
 
         DetachGrapple(); //If player is attached to this enemy, stop grapple function
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        isDead = true;
+        if(CompareTag("motorbike"))
+        {
+            Instantiate(explosionVfx, gameObject.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            
+        }
     }
 
     public void GrappleAttached(GrappleObject grapple)
@@ -35,4 +52,26 @@ public class DemoEnemy : MonoBehaviour
             grappleAttached.CancelGrapple();
         }
     }
+
+    void Update()
+    {
+        if(isDead)
+        {
+            if (transform.position.y > 0.5f)
+            {
+                rb.AddForce(Vector3.down * 20f, ForceMode.Acceleration);
+            }
+        }
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if(isDead)
+        {
+            Instantiate(explosionVfx, gameObject.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+
 }

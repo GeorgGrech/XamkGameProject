@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BoidProjectile : MonoBehaviour
 {
+    private AudioManager audioManager;
     [SerializeField] private float lifetime;
 
     public float shotDamage = 10f;
@@ -14,6 +15,7 @@ public class BoidProjectile : MonoBehaviour
     int LayerObstacle;
     void Start()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         GlobalVolume = GameObject.Find("Global Volume");
         LayerObstacle = LayerMask.NameToLayer("Environment");
     }
@@ -22,6 +24,7 @@ public class BoidProjectile : MonoBehaviour
     {
         if(collider.tag == "Player")
         {
+            audioManager.playSound(4);
             collider.SendMessageUpwards("ChangeHealth", -shotDamage, SendMessageOptions.DontRequireReceiver);
             GlobalVolume.SendMessageUpwards("PlayDamageAnimation", SendMessageOptions.DontRequireReceiver);
             Instantiate(explosionVfx, gameObject.transform);
@@ -30,6 +33,7 @@ public class BoidProjectile : MonoBehaviour
 
         if(collider.gameObject.layer == LayerObstacle)
         {
+            audioManager.playSound(4);
             Debug.Log("Collided with: " + collider.name);
             Debug.Log("Position of collision: " + gameObject.transform.position);
             Instantiate(explosionVfx, gameObject.transform.position, Quaternion.identity);
