@@ -9,6 +9,11 @@ public class BackToMenu : MonoBehaviour
     public string SampleScene;
 
     // Function to handle button click
+    void Start()
+    {
+        Cursor.visible = true;
+    }
+
     public void OnBackButtonClick()
     {
         // Check if the target scene name is not empty
