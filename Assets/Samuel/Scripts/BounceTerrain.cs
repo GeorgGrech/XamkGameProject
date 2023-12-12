@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BounceTerrain : MonoBehaviour
 {
+    private AudioManager audioManager;
     // Timer to track collision time
-	float _timeColliding;
+    float _timeColliding;
 	// Time before damage is taken, 1 second default
 	public float timeThreshold = 1f;
 
@@ -22,6 +23,7 @@ public class BounceTerrain : MonoBehaviour
     public GameObject GlobalVolume;
     void Start()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         launchForce = 30f;
         GlobalVolume = GameObject.Find("Global Volume");
     }
@@ -40,8 +42,10 @@ public class BounceTerrain : MonoBehaviour
                 // Apply an upward force
                 Debug.Log("LaunchPlayer");
                 playerRigidbody.AddForce(Vector3.up * launchForce, ForceMode.Impulse);
+                audioManager.playSound(7);
                 collision.gameObject.SendMessageUpwards("ChangeHealth", -20f, SendMessageOptions.DontRequireReceiver);
                 GlobalVolume.SendMessageUpwards("PlayDamageAnimation", SendMessageOptions.DontRequireReceiver);
+
             }
 		}
     }
