@@ -77,6 +77,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6865856283375825968, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
+      propertyPath: m_Size.x
+      value: 1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865856283375825968, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -86,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7662860563448110788, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7943215974036780315, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
       propertyPath: m_Enabled
@@ -107,27 +111,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4115476135907606149, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4857034072755329606}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
---- !u!1 &6126419840843033810 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4115476135907606149, guid: a68eabc10bd1b4dcaa03efa0e2052ddb, type: 3}
-  m_PrefabInstance: {fileID: 7789100760209560151}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4857034072755329606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6126419840843033810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e704072ec7c6d1498436628a668dee3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grappleAttached: {fileID: 0}
-  waveManager: {fileID: 0}

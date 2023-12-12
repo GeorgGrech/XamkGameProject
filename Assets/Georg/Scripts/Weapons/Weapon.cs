@@ -134,7 +134,7 @@ public class Weapon : MonoBehaviour
 
         Vector3 effectTarget = shootSpot.forward+direction*range;
 
-        if (Physics.Raycast(ray, out hit, range))
+        if (Physics.Raycast(ray, out hit, range) && !hit.collider.isTrigger)
         {
             //Get GameObject hit
             GameObject gb = hit.collider.gameObject;

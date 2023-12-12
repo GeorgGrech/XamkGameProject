@@ -82,7 +82,7 @@ public class PlayerGrapple : MonoBehaviour
         lr.enabled = true;
 
         RaycastHit hit;
-        if (Physics.Raycast(playerCam.position, playerCam.forward, out hit, maxGrappleDistance, grappleableLayer))
+        if (Physics.Raycast(playerCam.position, playerCam.forward, out hit, maxGrappleDistance, grappleableLayer) && !hit.collider.isTrigger)
         {
             grapplePoint = hit.point;
             

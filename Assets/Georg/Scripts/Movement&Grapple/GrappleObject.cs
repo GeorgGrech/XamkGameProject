@@ -80,6 +80,7 @@ public class GrappleObject : MonoBehaviour
 
     public void CancelGrapple()
     {
+
         if (grappleCoroutine != null)
         {
             StopCoroutine(grappleCoroutine);
