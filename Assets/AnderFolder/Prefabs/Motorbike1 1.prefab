@@ -1597,6 +1597,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1982135352573242588, guid: 1582f123862397c418b6d6138a91cb20, type: 3}
+      propertyPath: fireRate
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8741662642175407045, guid: 1582f123862397c418b6d6138a91cb20, type: 3}
       propertyPath: m_Name
       value: CarDoubleBarrelTurret
