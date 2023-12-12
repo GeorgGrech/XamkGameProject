@@ -5995,12 +5995,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5869881430369084035, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
+      propertyPath: range
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5869881430369084035, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
       propertyPath: damage
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5869881430369084035, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
       propertyPath: accuracy
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5869881430369084035, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
       propertyPath: rateOfFire
@@ -6012,7 +6016,7 @@ PrefabInstance:
       objectReference: {fileID: 941969077108490360}
     - target: {fileID: 5869881430369084035, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
       propertyPath: shotsPerRound
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6762072255890535096, guid: 1760cac42d924f84db205ddc1aedbd11, type: 3}
       propertyPath: weapons.Array.size
