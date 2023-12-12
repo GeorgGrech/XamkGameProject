@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 public class FloorPoolSystem : MonoBehaviour
 {
     public GameObject Train;
-    public GameObject FloorPrefab;
+    public List<GameObject> FloorPrefabs;
 
     public int poolSize = 7;
     public float scaleX;
@@ -53,12 +53,15 @@ public class FloorPoolSystem : MonoBehaviour
     // Create and enqueue objects in the pool
     void InitializePool()
     {
+        int j = 0;
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(FloorPrefab);
+            GameObject obj = Instantiate(FloorPrefabs[j]);
             obj.SetActive(false);
             floorPool.Enqueue(obj);
             //floorList.Remove(obj);
+            j++;
+            if(j == FloorPrefabs.Count) { j = 0; }
         }
     }
 
@@ -93,7 +96,7 @@ public class FloorPoolSystem : MonoBehaviour
         // You might want to find the position of the furthest active floor rather than relying on a separate 'furthest' variable.
         float newFloorXPosition = FindFurthestFloorXPosition() + scaleX;
         GameObject newFloor = GetObjectFromPool();
-        newFloor.transform.position = new Vector3(newFloorXPosition, Train.transform.position.y - 2, Train.transform.position.z);
+        newFloor.transform.position = new Vector3(newFloorXPosition, Train.transform.position.y - 2, 0);
     }
 
     float FindFurthestFloorXPosition()
